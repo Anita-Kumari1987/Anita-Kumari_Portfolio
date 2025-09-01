@@ -1,0 +1,34 @@
+{
+  "info": {
+    "name": "Portfolio Contact API",
+    "_postman_id": "d0d0cafe-babe-1234-5678-abcdef123456",
+    "description": "Test the /api/contact endpoint for Next.js + Resend setup",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Send Contact Message",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Alice Tester\",\n  \"email\": \"alice@example.com\",\n  \"subject\": \"Hello from Postman\",\n  \"topic\": \"Portfolio inquiry\",\n  \"message\": \"This is a test via Postman to check email sending.\",\n  \"consent\": true\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3003/api/contact",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3003",
+          "path": ["api", "contact"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
