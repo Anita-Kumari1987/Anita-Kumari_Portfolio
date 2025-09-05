@@ -12,6 +12,8 @@ export interface OrbitingCirclesProps
   path?: boolean;
   iconSize?: number;
   speed?: number;
+  /** Tailwind classes for the orbit “thread” (SVG stroke) */
+  pathClassName?: string;
 }
 
 export function OrbitingCircles({
@@ -23,19 +25,20 @@ export function OrbitingCircles({
   path = true,
   iconSize = 30,
   speed = 1,
+  pathClassName = "stroke-white/30", // <- default: visible on dark bg
   ...props
 }: OrbitingCirclesProps) {
   const calculatedDuration = duration / speed;
+
   return (
     <>
       {path && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          version="1.1"
           className="pointer-events-none absolute inset-0 size-full"
         >
           <circle
-            className="stroke-black/10 stroke-1 dark:stroke-white/10"
+            className={cn("stroke-1", pathClassName)}
             cx="50%"
             cy="50%"
             r={radius}
@@ -43,6 +46,7 @@ export function OrbitingCircles({
           />
         </svg>
       )}
+
       {React.Children.map(children, (child, index) => {
         const angle = (360 / React.Children.count(children)) * index;
         return (
@@ -56,9 +60,9 @@ export function OrbitingCircles({
               } as React.CSSProperties
             }
             className={cn(
-              `absolute flex size-[var(--icon-size)] transform-gpu animate-orbit items-center justify-center rounded-full`,
+              "flex size-[var(--icon-size)] transform-gpu animate-orbit items-center justify-center rounded-full absolute",
               { "[animation-direction:reverse]": reverse },
-              className,
+              className
             )}
             {...props}
           >

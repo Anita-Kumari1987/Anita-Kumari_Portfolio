@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { OrbitingCircles } from "@/components/magicui/orbiting-circles";
+import MarqueeDemo from "@/components/marquee-demo";
 
 /**
  * Tech stack orbiting icons section
@@ -25,30 +26,37 @@ export default function TechStackSection() {
       {/* Orbiting icons */}
       <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden">
         {/* Outer ring */}
-        <OrbitingCircles iconSize={40} radius={200}>
+        <OrbitingCircles iconSize={40} radius={200} className="border-white
+      ">
           <Image src="/images/TechIcons/react.svg" alt="React-icon" width={40} height={40} />
           <Image src="/images/TechIcons/next-js.svg" alt="next-Js-icon" width={40} height={40} />
-          <Image src="/images/TechIcons/tailwind.svg" alt="JavaScript-icon" width={40} height={40} />
+          <Image src="/images/TechIcons/tailwind.svg" alt="JavaScript-icon" width={60} height={60} />
           <Icons.gitHub />
           <Image src="/images/TechIcons/typescript.svg" alt="HTML-icon" width={40} height={40} />
-          <Image src="/images/TechIcons/figma.svg" alt="CSS-icon" width={40} height={40} />
+          <Image src="/images/TechIcons/figma.svg" alt="CSS-icon" width={50} height={50} />
+          <Image src="/images/TechIcons/nodejs.svg" alt="nodejs-icon" width={80} height={80} />
+          <Image src="/images/TechIcons/vscode.svg" alt="vscode-icon" width={40} height={40} />
+          <Image src="/images/TechIcons/mongodb.svg" alt="mongodb-icon" width={40} height={40} />
+          <Image src="/images/TechIcons/magicui.jpeg" alt="magic-ui-icon" width={40} height={40}  className="rounded-full"/>
+          <Image src="/images/TechIcons/shadcn.png" alt="shadcn-icon" width={35} height={35} className="rounded-full" />
         </OrbitingCircles>
 
         {/* Inner ring */}
-        <OrbitingCircles iconSize={30} radius={80} reverse speed={2}>
+        <OrbitingCircles iconSize={40} radius={80} reverse speed={2}>
           <Icons.notion />
           <Icons.openai />
           <Icons.googleDrive />
           <Image
             src="/images/TechIcons/javascript.svg"
             alt="JavaScript"
-            width={40}
-            height={40}
+            width={35}
+            height={35}
           />
           <Image src="/images/TechIcons/html.svg" alt="HTML" width={50} height={50} />
           <Image src="/images/TechIcons/css.svg" alt="CSS" width={50} height={50} />
         </OrbitingCircles>
       </div>
+      <MarqueeDemo/>
     </section>
   );
 }

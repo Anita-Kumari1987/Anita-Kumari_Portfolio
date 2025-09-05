@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactFormCard from "@/components/ContactFormCard";
+import { ShineBorder } from "../../components/magicui/shine-border";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -8,26 +9,20 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section
-      className="relative isolate flex flex-col justify-center min-h-screen px-6 py-16 md:py-24 max-w-10xl ml-[-70px]"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px)",
-        backgroundSize: "80px 80px, 80px 80px",
-      }}
-    >
-      <div className="relative max-w-4xl w-full overflow-visible rounded-[28px] border border-white/12 bg-white/[0.045] p-6 shadow-[0_25px_60px_-30px_rgba(0,0,0,.6)] backdrop-blur-xl md:p-10 mx-auto">
-        <h1 className="text-center text-4xl font-extrabold text-white sm:text-5xl">
-          Let’s{" "}
-          <span className="bg-gradient-to-r from-violet-300 via-purple-400 to-cyan-300 bg-clip-text text-transparent">
-            collaborate
-          </span>
-        </h1>
-        <p className="mx-auto mt-4 max-w-3xl text-center text-slate-300/85">
-          Based in Stockholm (CET/CEST). I usually reply within 24 hours.
-        </p>
-        <div className="mt-10">
-          <ContactFormCard />
+    <section className="relative isolate w overflow-hidden flex flex-col items-center justify-center min-h-screen w-[92%] px-6 py-16 md:py-6">
+      <div className="mx-auto w-full max-w-4xl">
+        <div className="relative overflow-visible rounded-[28px] border border-white/12 bg-white/[0.045] p-6 md:p-10 backdrop-blur-xl shadow-[0_25px_60px_-30px_rgba(0,0,0,.6)]">
+          <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
+          <h1 className="text-center text-4xl md:text-6xl font-semibold tracking-tight text-white">
+            Contact Me
+          </h1>
+          <p className="mt-3 mx-auto max-w-3xl text-center text-white/75">
+            Based in Stockholm (CET/CEST). I usually reply within 24 hours.
+          </p>
+
+          <div className="mt-10">
+            <ContactFormCard />
+          </div>
         </div>
       </div>
     </section>

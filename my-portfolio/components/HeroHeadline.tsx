@@ -1,5 +1,6 @@
 import HeaderText from "./HeaderText";
 import LocalTime from "./LocalTime";
+import { TextAnimate }from "./magicui/text-animate";
 
 type HeaderTextProps = { name?: string };
 
@@ -16,22 +17,26 @@ export default function HeroHeadline({ name = "Anita" }: HeaderTextProps) {
           Dynamic Web Designer/Developer
         </p>
 
+        
         {/* Two-line headline, same size & style */}
         <h1
           className="mt-6 text-left font-light text-white
                      text-5xl sm:text-6xl md:text-7xl 
                      tracking-[0.02em] leading-[1.2]
                      [text-shadow:0_6px_18px_rgba(0,0,0,.35)]"
-        >
+        ><TextAnimate animation="slideUp" by="word">
           Transforming Concepts into
+          </TextAnimate>
         </h1>
         <h1
           className="text-left font-light text-white
                      text-5xl sm:text-6xl md:text-7xl 
                      tracking-[0.02em] leading-[1.2]
                      [text-shadow:0_6px_18px_rgba(0,0,0,.35)]"
-        >
+        ><TextAnimate animation="slideUp" by="word">
+         
           Seamless User Experiences
+          </TextAnimate>
         </h1>
 
         {/* typed line + CTA */}

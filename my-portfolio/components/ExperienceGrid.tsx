@@ -6,7 +6,8 @@ import { motion, MotionConfig } from "framer-motion";
 type Card = {
   title: string;
   desc: string;
-  icon?: string; // /public path
+  icon?: string; 
+  duration: string // /public path
   glow?: "top" | "bottom";
 };
 
@@ -16,6 +17,7 @@ const CARDS: Card[] = [
     desc:
       "Worked on end-to-end recruitment cycle and keep track of the candidates via ATS",
     icon: "/images/experience1.png",
+    duration: "Sept 2023 - March 2024",
     glow: "top",
   },
   {
@@ -23,6 +25,7 @@ const CARDS: Card[] = [
     desc:
       "Responded on average to 130-160 HR-related tickets/day and recruitment support",
     icon: "/images/experience2.png",
+    duration: "Feb 2023 - June 2023",
     glow: "bottom",
   },
   {
@@ -30,6 +33,7 @@ const CARDS: Card[] = [
     desc:
       "worked on full life-cycle recruiting and hiring for 100+ positions within IT roles",
     icon: "/images/experience3.png",
+    duration: "Feb 2011 - April 2014",
     glow: "bottom",
   },
   {
@@ -37,6 +41,7 @@ const CARDS: Card[] = [
     desc:
       "worked on full life-cycle recruiting and hiring for 200+ positions within IT roles",
     icon: "/images/experience4.png",
+    duration: "May 2010 - Jan 2011",
     glow: "top",
   },
 ];
@@ -59,10 +64,10 @@ export default function ExperienceGrid() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-12 text-center text-4xl font-extrabold text-white sm:text-5xl"
+          className="text-5xl mb-16 sm:text-6xl md:text-7xl font-light text-white"
         >
           My{" "}
-          <span className="bg-gradient-to-r from-violet-300 via-purple-400 to-violet-300 bg-clip-text text-transparent">
+          <span className="text-5xl sm:text-6xl md:text-7xl font-light text-white">
             work experience
           </span>
         </motion.h1>
@@ -70,7 +75,7 @@ export default function ExperienceGrid() {
         {/* Timeline container */}
         <div className="relative w-full max-w-2xl mx-auto flex flex-col">
           {/* Vertical line */}
-          <div className="absolute left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-violet-400/60 via-purple-400/40 to-cyan-400/60 rounded-full z-0" />
+          <div className="absolute left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-300 to-cyan-400/60 rounded-full z-0" />
           <div className="flex flex-col gap-8">
             {CARDS.map((card, i) => (
               <ExperienceCard key={card.title} card={card} index={i} isLast={i === CARDS.length - 1} />
@@ -101,14 +106,14 @@ function ExperienceCard({
       className="group relative flex items-center"
     >
       {/* Timeline circle */}
-      <span className="relative z-10 flex items-center justify-center h-6 w-6">
-        <span className="absolute h-6 w-6 rounded-full bg-white/20 border-2 border-violet-400" />
-        <span className="h-3 w-3 rounded-full bg-gradient-to-br from-violet-400 to-cyan-400" />
+      <span className="relative ml-3 z-10 flex items-center justify-center h-6 w-6">
+        <span className="absolute h-6 w-6 rounded-full from-cyan-400 to-cyan-600" />
+        <span className="h-3 w-3 rounded-full bg-gradient-to-br from-cyan-400 to-cyan-600" />
       </span>
 
       {/* Card body */}
       <div className="ml-8 flex-1">
-        <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 p-6 md:p-8 shadow-xl backdrop-blur-xl">
+        <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 p-6 md:p-8 shadow-xl w-[700px] backdrop-blur-xl">
           {/* soft spotlights */}
           {card.glow === "top" && (
             <span className="pointer-events-none absolute left-1/2 top-0 -z-10 h-16 w-60 -translate-x-1/2 rounded-full bg-white/10 blur-2xl opacity-40 transition-opacity duration-300 group-hover:opacity-60" />
@@ -141,6 +146,7 @@ function ExperienceCard({
               <h3 className="text-[1.5rem] font-semibold text-white">
                 {card.title}
               </h3>
+              <span className="text-sm text-white/60">{card.duration}</span>
               <p className="mt-3 max-w-3xl leading-relaxed text-base text-slate-200/80 md:text-[17px]">
                 {card.desc}
               </p>
