@@ -53,18 +53,17 @@ const ITEMS: Item[] = [
 
 export default function EducationPage() {
   return (
-    <section className="relative flex flex-col w-[92%] px-6 py-16 md:py-12">
-      {/* background wash */}
-      <div className="pointer-events-none absolute inset-0 -z-10 " />
+    <section className="relative flex flex-col w-[92%] px-6 py-10 md:py-12">
+      {/* orange radial background to match About */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_bottom_left,rgba(255,94,0,0.2)_0%,transparent_55%)]" />
 
       {/* Heading */}
-      <header className="mb-10 text-center">
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-light text-white">
+      <header className="mb-8 text-center">
+        <h1 className="bg-clip-text text-transparent text-5xl sm:text-6xl md:text-6xl font-light bg-gradient-to-b from-orange-200 to-orange-500">
           Educational Journey
         </h1>
-        <p className=" text-xl mx-auto mt-3 max-w-3xl font-extralight text-white/70">
-          From foundational studies to specialized programs, each step has
-          contributed to building expertise in technology and beyond.
+        <p className="mx-auto mt-4 max-w-3xl text-slate-200/90 text-lg md:text-xl leading-relaxed">
+          From foundational studies to specialized programs, each step has contributed to building expertise in technology and beyond.
         </p>
       </header>
 
@@ -101,8 +100,8 @@ function Row({ item }: { item: Item }) {
         <span
           className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium 
                      bg-white/10 text-white/80 backdrop-blur-md border border-white/15
-                     group-hover:bg-gradient-to-r group-hover:from-cyan-500 group-hover:to-cyan-950
-                     group-hover:text-white group-hover:shadow-[0_6px_20px_-6px_rgba(255,80,20,.7)] 
+                     group-hover:bg-gradient-to-r group-hover:from-orange-400 group-hover:to-orange-900
+                     group-hover:text-white group-hover:shadow-[0_6px_20px_-6px_rgba(255,94,0,.7)] 
                      transition-all duration-300"
         >
           {pillText}
@@ -115,7 +114,7 @@ function Row({ item }: { item: Item }) {
       {/* program / degree */}
       <h3
         className="text-xl sm:text-2xl mb-6 font-light leading-snug text-white 
-                   transition-colors duration-300 group-hover:text-cyan-300"
+                   transition-colors duration-300 group-hover:text-orange-300"
       >
         {item.title}
       </h3>
@@ -125,7 +124,7 @@ function Row({ item }: { item: Item }) {
         {/* base line (always visible) */}
         <span className="absolute inset-0 rounded-full bg-white/18" />
         {/* gradient overlay (only color on hover) */}
-        <span className="absolute inset-0 rounded-full bg-gradient-to-r group-hover:from-cyan-500 group-hover:to-cyan-950 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <span className="absolute inset-0 rounded-full bg-gradient-to-r group-hover:from-orange-400 group-hover:to-orange-900 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       </div>
     </motion.li>
   );

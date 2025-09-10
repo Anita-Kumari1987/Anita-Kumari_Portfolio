@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
+import Link from "next/link";
+import { Button } from "../components/ui/moving-border";
 
 type HeaderTextProps = { name?: string };
 
@@ -27,7 +29,7 @@ export default function HeaderText({ name = "Anita" }: HeaderTextProps) {
   return (
     <div className="mt-20">
       <h2
-  className="text-left mask-b-from-neutral-600
+  className="text-left 
              text-2xl sm:text-3xl md:text-4xl
              tracking-[0.01em] leading-relaxed
              text-white/95 [text-shadow:0_6px_24px_rgba(0,0,0,.35)]"
@@ -51,19 +53,13 @@ export default function HeaderText({ name = "Anita" }: HeaderTextProps) {
     </span>
   </span>
 </h2>
-
-      <a
-        href="/images/Anita-Kumari_Resume.pdf"
-        download
-        id="myResume"
-        className="inline-block mt-15 md:text-2xl px-5 text-2xl py-3 rounded-full
-                   border border-white/25 bg-white/10 text-gray-300
-                   hover:bg-white/15 hover:border-white/40 transition
-                   [backdrop-filter:blur(8px)]
-                   shadow-[0_8px_30px_rgba(0,0,0,0.15)]"
-      >
-        Download CV
-      </a>
+      <div className="mt-6">
+        <Link href="/images/Anita-Kumari_Resume.pdf" download>
+          <Button borderRadius="1.75rem" className="w-auto px-6 py-3 text-base">
+            Download CV
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 }

@@ -50,6 +50,8 @@ export default function ExperienceGrid() {
   return (
     <MotionConfig reducedMotion="never">
       <section className="relative isolate w overflow-hidden flex flex-col items-center justify-center min-h-screen w-[92%] px-6 py-16 md:py-24">
+        {/* shaded glossy background */}
+        <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_bottom_left,rgba(255,94,0,0.2)_0%,transparent_55%)]" />
         {/* Dark base and subtle grid */}
         <div className="pointer-events-none absolute inset-0 -z-20 bg-[#0b0f1a] opacity-40" />
         <div
@@ -64,12 +66,9 @@ export default function ExperienceGrid() {
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl mb-16 sm:text-6xl md:text-7xl font-light text-white"
+          className="mb-16 text-center bg-clip-text text-transparent text-5xl sm:text-6xl md:text-6xl font-light bg-gradient-to-b from-orange-200 to-orange-500"
         >
-          My{" "}
-          <span className="text-5xl sm:text-6xl md:text-7xl font-light text-white">
-            work experience
-          </span>
+          My work experience
         </motion.h1>
 
         {/* Timeline container */}

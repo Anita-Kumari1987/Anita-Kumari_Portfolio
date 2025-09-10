@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Dribbble, Facebook, Instagram, Twitter } from "lucide-react";
+import { Twitter, Dribbble, Facebook, Instagram, ArrowUpRight } from "lucide-react";
 import Logo3D from "./Logo3D";
 
 type Props = {
@@ -21,66 +21,108 @@ export default function SidebarCard({
   socials,
 }: Props) {
   return (
-    <aside className="relative rounded-[28px] border border-white/10 bg-[#0f1316]/80 backdrop-blur-xl p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_40px_80px_-20px_rgba(0,0,0,0.6)]">
-      {/* top row */}
-      <div className="flex items-center flex-col gap-4">
-        <Logo3D />
-    <div className="rounded-full border  border-white/10 bg-white/5 px-4 py-2 flex items-center text-[20px] w-[18rem]my-">
-      <span className="text-white/80">Empowering the FUTURE</span>
-  
-    </div>
-      </div>
-
-      {/* photo */}
-      <div className="mt-6 rounded-[24px] overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#ff6a3d] via-[#ff922e] to-[#ff3d43]" />
-        <img
-          src={avatar.src}
-          alt={avatar.alt ?? `${name} portrait`}
-          width={900}
-          height={1125}
-          className="relative object-cover w-full aspect-[4/5]"
-        />
-        {/* script name overlay */}
-        {/* <div className="pointer-events-none absolute -bottom-10 left-1/2 -translate-x-1/2">
-          <span className="[font-family:var(--font-script,cursive)] text-[84px] leading-none text-amber-300 drop-shadow-[0_6px_24px_rgba(0,0,0,0.6)] select-none">
-            {name}
-          </span> */}
-          <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-full text-center">
-  <span className="[font-family:var(--font-script,cursive)] text-[84px] leading-none text-red-500 drop-shadow-[0_6px_24px_rgba(0,0,0,0.6)] select-none">
-    {name}
-  </span>
+    <aside className="relative rounded-[28px] border border-white/10 bg-[#0f1316]/80 backdrop-blur-xl p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_40px_80px_-20px_rgba(0,0,0,0.6)] min-h-[600px]">
+      <style jsx>{`
+        @keyframes nameAppear {
+          from { 
+            opacity: 0; 
+            transform: translateY(40px) rotate(6deg);
+          }
+          to { 
+            opacity: 0.95; 
+            transform: translateY(0) rotate(6deg);
+          }
+        }
+      `}</style>
+      
+      {/* Top section with logo and availability */}
+      <div className="flex items-center justify-between mb-6">
+        <div className="w-8 h-8 rounded-md bg-white flex items-center justify-center">
+          <Image
+            src="/images/logo.png"
+            alt="Logo"
+            width={32}
+            height={32}
+            className="transition-transform duration-300 hover:rotate-180"
+          />
+        </div>
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
+          <div className="w-2 h-2 rounded-full bg-orange-400"></div>
+          <span className="text-white/80 text-sm">Available for 3 projects</span>
         </div>
       </div>
 
-      {/* contact */}
-      <div className="pt-16 text-center">
+      {/* Profile section with gradient blur effect */}
+      <div className="mt-6 rounded-[24px] relative h-96">
+        {/* Image container with overflow */}
+        <div className="absolute inset-0 rounded-[24px] overflow-hidden">
+          {/* Main image */}
+          <div className="absolute inset-0">
+            <Image
+              src="/images/myPhoto.jpeg"
+              alt={avatar.alt ?? `${name} portrait`}
+              fill
+              className="object-cover object-top"
+              priority
+            />
+          </div>
+          
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-orange-950/60 to-orange-950/90" />
+        </div>
+
+        {/* Large signature name overlay */}
+        <div className="absolute inset-0 flex items-end justify-center z-20">
+          <div className="absolute bottom-[-25px]">
+            <h2 
+              className="text-[130px] text-white opacity-0 leading-none rotate--6"
+              style={{ 
+                fontFamily: 'var(--font-dancing-script)',
+                fontWeight: 700,
+                transformOrigin: 'center',
+                textShadow: '3px 3px 10px rgba(0,0,0,0.5)',
+                animation: 'nameAppear 1.2s ease-out forwards',
+                letterSpacing: '0.02em'
+              }}
+            >
+              Anita
+            </h2>
+          </div>
+        </div>
+
+        {/* Text overlay */}
+        <div className="relative z-10 h-full flex flex-col justify-end p-6">
+        </div>
+      </div>
+
+      {/* Contact info */}
+      <div className="pt-6 text-center">
         <a
           href={`mailto:${email}`}
-          className="block text-[20px] tracking-wide font-medium text-white/90 to-blue-50 hover:text-white transition-colors"
+          className="block text-[20px] tracking-wide font-medium text-white/90 hover:text-white transition-colors"
         >
           {email}
         </a>
         <p className="mt-3 text-lg text-white/70">Based in {location}</p>
       </div>
 
-      {/* socials */}
+      {/* Social icons */}
       <div className="mt-8 flex items-center justify-center gap-4">
         <RoundIcon href={socials?.x} sr="X / Twitter">
-          <Twitter className="size-5" />
+          <Twitter className="size-5 text-white/80" />
         </RoundIcon>
         <RoundIcon href={socials?.dribbble} sr="Dribbble">
-          <Dribbble className="size-5" />
+          <Dribbble className="size-5 text-white/80" />
         </RoundIcon>
         <RoundIcon href={socials?.instagram} sr="Instagram">
-          <Instagram className="size-5" />
+          <Instagram className="size-5 text-white/80" />
         </RoundIcon>
         <RoundIcon href={socials?.facebook} sr="Facebook">
-          <Facebook className="size-5" />
+          <Facebook className="size-5 text-white/80" />
         </RoundIcon>
       </div>
 
-      {/* CTA */}
+      {/* Get Started CTA */}
       <div className="mt-10">
         <div className="relative">
           <Link

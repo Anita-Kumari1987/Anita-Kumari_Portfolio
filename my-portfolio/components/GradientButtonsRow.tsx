@@ -18,14 +18,8 @@ export default function GradientButtonsRow({ className = "" }: { className?: str
         <Link key={label} href={href} aria-label={label}>
           <Button
             borderRadius="1.75rem"
-            className="
-              w-full h-16
-              bg-black/60 dark:bg-slate-900
-              text-white font-semibold text-lg
-              border border-white/20
-              hover:bg-black/70 hover:border-white/40
-              transition-colors
-            "
+            className="w-full h-16 text-white font-semibold text-lg bg-transparent"
+            borderClassName="!bg-[radial-gradient(#fb923c_40%,transparent_60%)]"
           >
             {label}
           </Button>

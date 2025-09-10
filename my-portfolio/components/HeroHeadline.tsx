@@ -8,8 +8,17 @@ export default function HeroHeadline({ name = "Anita" }: HeaderTextProps) {
   return (
     <section className="relative isolate w overflow-hidden flex flex-col items-center justify-center min-h-screen w-[92%] px-6 py-16 md:py-24">
        <LocalTime /> 
-      {/* subtle wash for readability */}
+      {/* subtle washes for readability */}
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-black/20 via-transparent to-black/20" />
+      {/* soft grid overlay dedicated to home only (keeps main bg video) */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 opacity-25
+        [background-image:linear-gradient(rgba(255,255,255,.06)_1px,transparent_1px),
+                           linear-gradient(90deg,rgba(255,255,255,.06)_1px,transparent_1px)]
+        [background-size:80px_80px,80px_80px]"
+      />
+      {/* gentle radial spotlight */}
+      <div className="pointer-events-none absolute -inset-[20%] -z-10 bg-[radial-gradient(closest-side,rgba(255,255,255,0.08),transparent_60%)]" />
 
       <div className="relative mx-auto max-w-5xl px-10 py-24 sm:py-32 md:py-40">
         {/* Slim pill badge */}
@@ -18,7 +27,8 @@ export default function HeroHeadline({ name = "Anita" }: HeaderTextProps) {
         </p>
 
         
-        {/* Two-line headline, same size & style */}
+        {/* Two-line headline, same size & style */
+        }
         <h1
           className="mt-6 text-left font-light text-white
                      text-5xl sm:text-6xl md:text-7xl 

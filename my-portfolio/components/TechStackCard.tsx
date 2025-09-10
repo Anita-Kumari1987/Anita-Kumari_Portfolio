@@ -12,13 +12,14 @@ import MarqueeDemo from "@/components/marquee-demo";
 export default function TechStackSection() {
   return (
     <section className="relative isolate w overflow-hidden flex flex-col items-center justify-center min-h-screen w-[92%] px-6 py-16 md:py-24">
+      {/* shaded glossy background */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_bottom_left,rgba(255,94,0,0.2)_0%,transparent_55%)]" />
       {/* Header */}
       <header className="mb-10 text-center">
-        <h1 className="mt-6 bg-blue-100 py-8 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl
-                    ">
-          Tech <span className="text-white/90">Stack</span>
+        <h1 className="mt-2 bg-clip-text text-center text-5xl md:text-6xl font-light tracking-tight text-transparent bg-gradient-to-b from-orange-200 to-orange-500">
+          Tech Stack
         </h1>
-        <p className="mt-0 text-lg sm:text-xl text-white/80">
+        <p className="mt-2 text-lg sm:text-xl text-white/80">
           I constantly try to improve….!!
         </p>
       </header>
