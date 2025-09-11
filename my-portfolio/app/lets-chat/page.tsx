@@ -16,7 +16,7 @@ export default function LetsChatPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-8 bg-clip-text text-transparent text-5xl sm:text-6xl md:text-7xl font-light bg-gradient-to-b from-orange-200 to-orange-500"
+          className="mb-8 bg-clip-text text-transparent text-[72px] font-rajdhani bg-gradient-to-b from-orange-200 to-orange-500"
         >
           Let's Work Together
         </motion.h1>

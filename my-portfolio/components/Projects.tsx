@@ -9,7 +9,7 @@ const RecentProjects = () => {
   return (
     <section className="relative isolate w overflow-hidden flex flex-col items-center justify-center min-h-screen w-[92%] px-6 py-4 md:py-4">
       <div className="py-20">
-        <h1 className="mt-6 bg-blue-100 py-2 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
+        <h1 className="mt-6 bg-clip-text text-center text-[72px] font-rajdhani tracking-tight text-transparent bg-gradient-to-b from-orange-200 to-orange-500">
           My-Projects
         </h1>
         <p className="mt-0 text-lg sm:text-xl text-white/80 text-center mb-15">
@@ -38,7 +38,7 @@ const RecentProjects = () => {
                   </div>
                 </div>
 
-                <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
+                <h1 className="font-rajdhani text-[72px] line-clamp-1">
                   {item.title}
                 </h1>
 

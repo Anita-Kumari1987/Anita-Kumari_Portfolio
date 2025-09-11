@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import SidebarCard from "../components/LeftSidebar";
 import RightSidebar from "../components/RightSidebar";
-import { Outfit, Dancing_Script } from "next/font/google";
+import { Outfit, Dancing_Script, Rajdhani } from "next/font/google";
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 const dancingScript = Dancing_Script({ 
@@ -10,13 +10,18 @@ const dancingScript = Dancing_Script({
   variable: "--font-dancing-script",
   weight: ["500", "700"]
 });
+const rajdhani = Rajdhani({
+  subsets: ["latin"],
+  weight: ["700"],
+  variable: "--font-rajdhani"
+});
 
 const SIDEBAR_W = 380; // px (matches Tailwind width below)
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="h-full">
-      <body className={`${outfit.variable} ${dancingScript.variable} font-sans text-white relative`}>
+      <body className={`${outfit.variable} ${dancingScript.variable} ${rajdhani.variable} font-sans text-white relative`}>
         {/* ---- GLOBAL BACKGROUND (fixed so it spans ALL pages & scroll) ---- */}
         <div
           className="fixed inset-0 -z-10 overflow-hidden"

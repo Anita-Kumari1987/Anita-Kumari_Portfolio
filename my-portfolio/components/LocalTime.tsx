@@ -26,7 +26,7 @@ export default function LocalTime() {
   }, []);
 
   return (
-    <div className="absolute top-10 left-20 text-sm sm:text-base font-light tracking-widest text-white/90">
+    <div className="absolute top-10 left-20 text-lg sm:text-xl font-rajdhani tracking-widest text-white/90">
       {timeString}
     </div>
   );

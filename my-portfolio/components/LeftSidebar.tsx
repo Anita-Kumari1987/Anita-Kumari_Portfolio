@@ -22,7 +22,7 @@ export default function SidebarCard({
 }: Props) {
   return (
     <aside className="relative rounded-[28px] border border-white/10 bg-[#0f1316]/80 backdrop-blur-xl p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_40px_80px_-20px_rgba(0,0,0,0.6)] min-h-[600px]">
-      <style jsx>{`
+      <style jsx global>{`
         @keyframes nameAppear {
           from { 
             opacity: 0; 
@@ -33,30 +33,59 @@ export default function SidebarCard({
             transform: translateY(0) rotate(6deg);
           }
         }
+
+        @keyframes custom-spin {
+          from {
+            transform: rotateY(0deg);
+          }
+          to {
+            transform: rotateY(360deg);
+          }
+        }
+
+        .animate-custom-spin {
+          animation: custom-spin 3s linear infinite;
+          transform-style: preserve-3d;
+        }
       `}</style>
       
       {/* Top section with logo and availability */}
       <div className="flex items-center justify-between mb-6">
-        <div className="w-8 h-8 rounded-md bg-white flex items-center justify-center">
+        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
           <Image
             src="/images/logo.png"
             alt="Logo"
-            width={32}
-            height={32}
-            className="transition-transform duration-300 hover:rotate-180"
+            width={40}
+            height={40}
+            className="animate-custom-spin rounded-full"
+            style={{ 
+              perspective: '1000px'
+            }}
           />
         </div>
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
-          <div className="w-2 h-2 rounded-full bg-orange-400"></div>
-          <span className="text-white/80 text-sm">Available for 3 projects</span>
+          <div className="w-2 h-2 rounded-full bg-cyan-400"></div>
+          <span className="text-white/80 text-sm">Available to work </span>
         </div>
       </div>
 
       {/* Profile section with gradient blur effect */}
       <div className="mt-6 rounded-[24px] relative h-96">
-        {/* Image container with overflow */}
+        {/* Image container with overflow and blur background */}
         <div className="absolute inset-0 rounded-[24px] overflow-hidden">
-          {/* Main image */}
+          {/* Blurred background for depth */}
+          <div className="absolute inset-0 scale-105">
+            <div className="absolute inset-x-0 bottom-0 h-1/2 blur-xl">
+              <Image
+                src="/images/myPhoto.jpeg"
+                alt=""
+                fill
+                className="object-cover object-top"
+              />
+            </div>
+          </div>
+          
+          {/* Main sharp image */}
           <div className="absolute inset-0">
             <Image
               src="/images/myPhoto.jpeg"
@@ -67,20 +96,23 @@ export default function SidebarCard({
             />
           </div>
           
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-orange-950/60 to-orange-950/90" />
+          {/* Multiple gradient overlays for depth with darker orange theme */}
+          <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-orange-950/90 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-orange-950/95 via-orange-900/60 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/70 to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_transparent_40%,_rgba(154,52,18,0.4)_100%)]" />
         </div>
 
         {/* Large signature name overlay */}
         <div className="absolute inset-0 flex items-end justify-center z-20">
-          <div className="absolute bottom-[-25px]">
+          <div className="absolute bottom-[-15px]">
             <h2 
-              className="text-[130px] text-white opacity-0 leading-none rotate--6"
+              className="text-[100px] text-white opacity-0 leading-none"
               style={{ 
                 fontFamily: 'var(--font-dancing-script)',
                 fontWeight: 700,
                 transformOrigin: 'center',
-                textShadow: '3px 3px 10px rgba(0,0,0,0.5)',
+                textShadow: '0 2px 10px rgba(194,65,12,0.3), 0 4px 20px rgba(154,52,18,0.4)',
                 animation: 'nameAppear 1.2s ease-out forwards',
                 letterSpacing: '0.02em'
               }}
@@ -96,7 +128,7 @@ export default function SidebarCard({
       </div>
 
       {/* Contact info */}
-      <div className="pt-6 text-center">
+      <div className="pt-12 text-center">
         <a
           href={`mailto:${email}`}
           className="block text-[20px] tracking-wide font-medium text-white/90 hover:text-white transition-colors"
@@ -123,18 +155,18 @@ export default function SidebarCard({
       </div>
 
       {/* Get Started CTA */}
-      <div className="mt-10">
+      <div className="mt-8">
         <div className="relative">
           <Link
             href="/lets-chat"
-            className="block w-full text-left text-2xl tracking-wide rounded-[28px] px-6 py-6 pr-24 bg-white/5 hover:bg-white/10 border border-white/10 transition-all"
+            className="block w-full text-left text-xl tracking-wide rounded-[24px] px-5 py-4 pr-20 bg-white/5 hover:bg-white/10 border border-white/10 transition-all"
           >
             Get Started
           </Link>
           <Link
             href="/lets-chat"
             aria-label="Go"
-            className="absolute right-3 top-1/2 -translate-y-1/2 grid place-items-center size-16 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 transition-all"
+            className="absolute right-3 top-1/2 -translate-y-1/2 grid place-items-center size-12 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 transition-all"
           >
             <ArrowUpRight className="size-7" />
           </Link>

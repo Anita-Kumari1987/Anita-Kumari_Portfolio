@@ -69,7 +69,7 @@ export default function ContactFormCard() {
         role="status"
       >
         <BorderSpotlight />
-        <h2 className="mb-2 text-2xl font-bold text-green-700 sm:text-3xl">
+        <h2 className="mb-2 text-[72px] font-rajdhani text-green-700">
           Thanks! I’ll reply soon.
         </h2>
         <p className="text-center text-slate-300/85">

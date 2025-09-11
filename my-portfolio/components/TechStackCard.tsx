@@ -11,12 +11,27 @@ import MarqueeDemo from "@/components/marquee-demo";
  */
 export default function TechStackSection() {
   return (
-    <section className="relative isolate w overflow-hidden flex flex-col items-center justify-center min-h-screen w-[92%] px-6 py-16 md:py-24">
+    <section className="relative isolate overflow-hidden flex flex-col items-center justify-start min-h-screen w-[92%] px-6 rounded-2xl  py-12 md:py-8">
+      {/* Dark base layer */}
+      <div className="pointer-events-none absolute inset-0 -z-30 bg-[#0b0f1a] opacity-50" />
+      
       {/* shaded glossy background */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_bottom_left,rgba(255,94,0,0.2)_0%,transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_bottom_left,rgba(255,94,0,0.4)_0%,transparent_65%)]" />
+      
+      {/* Gradient overlay */}
+      <div className="pointer-events-none absolute inset-0 -z-20 bg-gradient-to-b from-[#0b0f1a]/70 via-transparent to-[#0b0f1a]/70" />
+      
+      {/* Subtle grid */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 opacity-30
+        [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),
+                           linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)]
+        [background-size:80px_80px,80px_80px]"
+      />
+      
       {/* Header */}
       <header className="mb-10 text-center">
-        <h1 className="mt-2 bg-clip-text text-center text-5xl md:text-6xl font-light tracking-tight text-transparent bg-gradient-to-b from-orange-200 to-orange-500">
+        <h1 className="mt-2 bg-clip-text text-center text-[72px] font-rajdhani tracking-tight text-transparent bg-gradient-to-b from-orange-200 to-orange-500">
           Tech Stack
         </h1>
         <p className="mt-2 text-lg sm:text-xl text-white/80">
@@ -194,138 +209,3 @@ const Icons = {
 
 
 
-// "use client";
-
-// import React, { type CSSProperties } from "react";
-// import Image from "next/image";
-// import { motion } from "framer-motion";
-
-// export type Tool = {
-//   name: string;
-//   /** Absolute path from /public (e.g. /images/tools/figma.png) */
-//   logo: string;
-//   caption: string;
-// };
-
-// const TOOLS: Tool[] = [
-//  {
-//     name: "HTML",
-//     logo: "/images/TechIcons/html.svg",
-//     caption: "Building block of the Web",
-//   },
-//   {
-//     name: "CSS",
-//     logo: "/images//TechIcons/css.svg",
-//     caption: "Stylesheet language for Web pages",
-//   },
-//     {
-//     name: "JavaScript",
-//     logo: "/images//TechIcons/javascript.svg",
-//     caption: "Scripting language for Web pages",
-//   },
-//     {
-//     name: "React",
-//     logo: "/images//TechIcons/react.svg",
-//     caption: "Most popular JS library ",
-//   },
-//     {
-//     name: "Next JS",
-//     logo: "/images//TechIcons/next-js.svg",
-//     caption: "The React Framework for Production",
-//   },
-//     {
-//     name: "Tailwind CSS",
-//     logo: "/images//TechIcons/tailwind.svg",
-//     caption: "Modern utility-first CSS framework",
-//   },
-//     {
-//     name: "Figma",
-//     logo: "/images/TechIcons/figma.svg",
-//     caption: "Leading collaborative design tool",
-//   },
-//     {
-//     name: "TypeScript",
-//     logo: "/images//TechIcons/typescript.svg",
-//     caption: "A typed superset of JavaScript",
-//   },
-// ];
-
-// const gridBgStyle: CSSProperties = {
-//   backgroundImage:
-//     "linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px)",
-//   backgroundSize: "80px 80px, 80px 80px",
-// };
-
-// export default function TechStackGrid(){
-//   return (
-//     <section className="relative isolate w overflow-hidden flex flex-col items-center justify-center min-h-screen w-[92%] px-6 py-16 md:py-24">
-//       {/* subtle grid bg (optional) */}
-//       <div className="pointer-events-none absolute inset-0 -z-10 opacity-60" />
-
-//       <h1 className="mb-4 text-5xl font-extrabold text-white sm:text-5xl md:text-6xl">
-//         Tech <span className="text-white/90">Stack</span>
-//       </h1>
-//       <p className="mb-8 text-2xl">I constantly try to improve....!!</p>
-
-//       {/* 1 → 2 → 3 columns */}
-//       <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
-//         {TOOLS.map((t, i) => (
-//           <ToolCard key={`${t.name}-${i}`} tool={t} index={i} />
-//         ))}
-//       </div>
-//     </section>
-//   );
-// }
-
-// interface ToolCardProps {
-//   tool: Tool;
-//   index: number;
-// }
-
-// function ToolCard({ tool, index }: ToolCardProps){
-//   return (
-//     <motion.article
-//       initial={{ opacity: 0, y: 14, scale: 0.98 }}
-//       whileInView={{ opacity: 1, y: 0, scale: 1 }}
-//       viewport={{ once: true, amount: 0.35 }}
-//       transition={{ duration: 0.45, delay: index * 0.04 }}
-//       whileHover={{ y: -3 }}
-//       className="
-//         relative overflow-hidden rounded-[28px]
-//         border border-white/10 bg-white/[0.04] backdrop-blur-xl
-//         shadow-[0_18px_40px_-18px_rgba(0,0,0,.55)]
-//       "
-//     >
-//       {/* soft spotlight near top */}
-//       <span className="pointer-events-none absolute inset-0 -z-10 rounded-[inherit]
-//         [background:radial-gradient(28%_36%_at_30%_12%,rgba(255,255,255,.12),transparent_60%)]" />
-
-//       {/* reduced overall height */}
-//       <div className="flex h-[280px] md:h-[300px] flex-col items-center justify-between p-6 md:p-7">
-//         {/* Title (smaller) */}
-//         <h3 className="mt-1 text-center text-2xl font-semibold text-white md:text-3xl">
-//           {tool.name}
-//         </h3>
-
-//         {/* Smaller logo */}
-//         <div className="grid place-items-center">
-//           <div className="rounded-[22px] bg-black/55 p-4 md:p-5 shadow-inner">
-//             <Image
-//               src={tool.logo}
-//               alt={tool.name}
-//               width={160}
-//               height={160}
-//               className="h-[96px] w-[96px] md:h-[120px] md:w-[120px] object-contain"
-//               priority
-//             />
-//           </div>
-//         </div>
-
-//         {/* Caption (smaller) */}
-//         <p className="text-center text-slate-200/85 text-sm md:text-[15px]">
-//           {tool.caption}
-//         </p>
-//       </div>
-//     </motion.article>
-//   );
-// }

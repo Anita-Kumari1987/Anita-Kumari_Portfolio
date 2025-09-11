@@ -20,9 +20,9 @@ export default function HeroHeadline({ name = "Anita" }: HeaderTextProps) {
       {/* gentle radial spotlight */}
       <div className="pointer-events-none absolute -inset-[20%] -z-10 bg-[radial-gradient(closest-side,rgba(255,255,255,0.08),transparent_60%)]" />
 
-      <div className="relative mx-auto max-w-5xl px-10 py-24 sm:py-32 md:py-40">
+      <div className="relative mx-auto max-w-9xl px-10 py-24 sm:py-32 md:py-40">
         {/* Slim pill badge */}
-        <p className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[11px] sm:text-xs uppercase tracking-[0.32em] text-white/75 [backdrop-filter:blur(4px)]">
+        <p className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[25px] sm:text-xs uppercase tracking-[0.32em] text-white/75 [backdrop-filter:blur(4px)]">
           Dynamic Web Designer/Developer
         </p>
 
@@ -30,19 +30,22 @@ export default function HeroHeadline({ name = "Anita" }: HeaderTextProps) {
         {/* Two-line headline, same size & style */
         }
         <h1
-          className="mt-6 text-left font-light text-white
-                     text-5xl sm:text-6xl md:text-7xl 
+          className="mt-6 text-left
+                     text-[72px] font-rajdhani
                      tracking-[0.02em] leading-[1.2]
-                     [text-shadow:0_6px_18px_rgba(0,0,0,.35)]"
+                     bg-clip-text  text-cyan-100"
+          style={{ fontFamily: 'var(--font-rajdhani)' }}
         ><TextAnimate animation="slideUp" by="word">
           Transforming Concepts into
           </TextAnimate>
         </h1>
         <h1
-          className="text-left font-light text-white
-                     text-5xl sm:text-6xl md:text-7xl 
+          className="text-left text-cyan-100
+                     text-6xl sm:text-6xl md:text-7xl 
                      tracking-[0.02em] leading-[1.2]
-                     [text-shadow:0_6px_18px_rgba(0,0,0,.35)]"
+                     [text-shadow:0_6px_18px_rgba(0,0,0,.35)]
+                     font-extralight"
+          style={{ fontFamily: 'var(--font-rajdhani)' }}
         ><TextAnimate animation="slideUp" by="word">
          
           Seamless User Experiences

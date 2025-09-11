@@ -16,7 +16,7 @@ export default function AboutPage() {
           initial={{ opacity: 0.5, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
-          className="mt-2 bg-clip-text text-center text-5xl md:text-6xl font-light tracking-tight text-transparent bg-gradient-to-b from-orange-200 to-orange-500"
+          className="mt-2 bg-clip-text text-center text-[72px] font-rajdhani tracking-tight text-transparent bg-gradient-to-b from-orange-200 to-orange-500"
         >
           About Me
         </motion.h2>
@@ -30,15 +30,27 @@ export default function AboutPage() {
               Before transitioning to development, I earned a Master’s in Human Resources and spent nearly five years as a tech recruiter. That background sharpened my communication, empathy, and problem‑solving—skills I now apply to understanding users and delivering thoughtful UI.
             </p>
             <ul className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-200/90">
-              <li className="flex items-start gap-2"><span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-400" /> Accessible, responsive layouts</li>
-              <li className="flex items-start gap-2"><span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-400" /> Component‑driven architecture</li>
-              <li className="flex items-start gap-2"><span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-400" /> Smooth micro‑interactions</li>
-              <li className="flex items-start gap-2"><span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-orange-400" /> Performance‑minded styling</li>
+              <li className="flex items-center gap-2.5">
+                <span className="inline-block h-2 w-2 rounded-full bg-orange-400 flex-shrink-0" />
+                <span className="text-lg">Accessible, responsive layouts</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <span className="inline-block h-2 w-2 rounded-full bg-orange-400 flex-shrink-0" />
+                <span className="text-lg">Component‑driven architecture</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <span className="inline-block h-2 w-2 rounded-full bg-orange-400 flex-shrink-0" />
+                <span className="text-lg">Smooth micro‑interactions</span>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <span className="inline-block h-2 w-2 rounded-full bg-orange-400 flex-shrink-0" />
+                <span className="text-lg">Performance‑minded styling</span>
+              </li>
             </ul>
 
             <div className="flex flex-wrap gap-3 pt-2">
               <Link href="/images/Anita-Kumari_Resume.pdf" download aria-label="Download resume PDF">
-                <Button borderRadius="1.75rem" className="w-auto px-6 py-3 text-base">Download CV</Button>
+                <Button borderRadius="1.75rem" className="w-auto px-5 py-1 text-base">Download CV</Button>
               </Link>
               <Link href="/contact" aria-label="Go to contact page">
                 <Button borderRadius="1.75rem" className="w-auto px-6 py-3 text-base">Let’s Connect</Button>

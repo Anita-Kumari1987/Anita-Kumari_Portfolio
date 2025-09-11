@@ -63,7 +63,7 @@ export default function TestimonialsJayden({
     const id = window.setInterval(() => {
       setDir(1);
       setIndex((i) => (i + 1) % TESTIMONIALS.length);
-    }, 3000);
+    }, 6000);
     return () => window.clearInterval(id);
   }, [isAuto]);
 
@@ -88,7 +88,7 @@ export default function TestimonialsJayden({
 
       {/* Heading */}
       <div className="max-w-7xl mx-auto relative z-10">
-        <h2 className="mt-2 bg-blue-100 py-0 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl">
+        <h2 className="mt-2 bg-clip-text text-center text-[72px] font-rajdhani tracking-tight text-transparent bg-gradient-to-b from-orange-200 to-orange-500">
           {title}
         </h2>
         <p className="mt-0 text-[5px] sm:text-[5px] md:text-lg text-center text-white/80">
@@ -105,7 +105,7 @@ export default function TestimonialsJayden({
             initial={{ opacity: 0, x: dir === 1 ? 40 : -40 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: dir === 1 ? -40 : 40 }}
-            transition={{ duration: 0.45, ease: "easeOut" }}
+            transition={{ duration: 0.75, ease: "easeInOut" }}
             className={cn(
               "text-white/90 pl-5 pr-5 text-justify max-w-none",
               "text-[clamp(1.6rem,4.5vw,3.2rem)]",
@@ -159,7 +159,7 @@ export default function TestimonialsJayden({
               initial={{ opacity: 0, y: 20, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.98 }}
-              transition={{ duration: 0.45, ease: "easeOut" }}
+              transition={{ duration: 0.75, ease: "easeInOut" }}
               className="relative"
             >
               <div

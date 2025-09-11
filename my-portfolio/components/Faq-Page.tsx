@@ -48,7 +48,7 @@ export default function FAQJaydenDark() {
     <section className="relative overflow-hidden flex flex-col items-center justify-center min-h-screen w-[92%] isolate">
       <div className="relative mx-auto max-w-5xl px-6 py-20">
         <div className="mb-10 text-center">
-          <h2 className="mt-6 bg-blue-100 py-8 bg-clip-text text-left text-4xl font-medium tracking-tight text-transparent md:text-8xl">
+          <h2 className="mt-6 bg-clip-text text-left text-[72px] font-rajdhani tracking-tight text-transparent bg-gradient-to-b from-orange-200 to-orange-500">
             FAQs
           </h2>
         </div>

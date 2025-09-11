@@ -13,7 +13,7 @@ export default function ContactPage() {
       <div className="mx-auto w-full max-w-4xl">
         <div className="relative overflow-visible rounded-[28px] border border-white/12 bg-white/[0.045] p-6 md:p-10 backdrop-blur-xl shadow-[0_25px_60px_-30px_rgba(0,0,0,.6)]">
           <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
-          <h1 className="text-center text-4xl md:text-6xl font-semibold tracking-tight text-white">
+          <h1 className="text-center text-[72px] font-rajdhani tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-orange-200 to-orange-500">
             Contact Me
           </h1>
           <p className="mt-3 mx-auto max-w-3xl text-center text-white/75">

@@ -59,7 +59,7 @@ export default function EducationPage() {
 
       {/* Heading */}
       <header className="mb-8 text-center">
-        <h1 className="bg-clip-text text-transparent text-5xl sm:text-6xl md:text-6xl font-light bg-gradient-to-b from-orange-200 to-orange-500">
+        <h1 className="bg-clip-text text-transparent text-[72px] font-rajdhani bg-gradient-to-b from-orange-200 to-orange-500">
           Educational Journey
         </h1>
         <p className="mx-auto mt-4 max-w-3xl text-slate-200/90 text-lg md:text-xl leading-relaxed">
