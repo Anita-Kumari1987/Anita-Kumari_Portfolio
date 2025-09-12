@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function LetsChatPage() {
   return (
-    <section className="relative isolate overflow-hidden flex flex-col items-center justify-center min-h-screen w-[92%] px-6 py-16 md:py-24">
+    <section className="relative isolate overflow-hidden flex flex-col items-center justify-center min-h-screen w-[92%] px-6  md:py-2">
       {/* orange radial background */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_bottom_left,rgba(255,94,0,0.2)_0%,transparent_55%)] pointer-events-none" />
       
@@ -39,7 +39,7 @@ export default function LetsChatPage() {
           <Link href="/contact">
             <Button
               borderRadius="1.75rem"
-              className="px-8 py-4 text-lg font-medium"
+              className="px-8 py-4 text-lg font-medium cursor-pointer"
               borderClassName="!bg-[radial-gradient(#fb923c_40%,transparent_60%)]"
             >
               Get In Touch
@@ -49,7 +49,7 @@ export default function LetsChatPage() {
           <Link href="/images/Anita-Kumari_Resume.pdf" download>
             <Button
               borderRadius="1.75rem"
-              className="px-8 py-4 text-lg font-medium"
+              className="px-8 py-4 text-lg font-medium cursor-pointer"
             >
               Download Resume
             </Button>

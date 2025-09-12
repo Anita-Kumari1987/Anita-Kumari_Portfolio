@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Twitter, Dribbble, Facebook, Instagram, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import Logo3D from "./Logo3D";
 
 type Props = {
@@ -140,16 +141,16 @@ export default function SidebarCard({
 
       {/* Social icons */}
       <div className="mt-8 flex items-center justify-center gap-4">
-        <RoundIcon href={socials?.x} sr="X / Twitter">
-          <Twitter className="size-5 text-white/80" />
+        <RoundIcon href="https://github.com/Anita-Kumari1987" sr="GitHub">
+          <Github className="size-5 text-white/80" />
         </RoundIcon>
-        <RoundIcon href={socials?.dribbble} sr="Dribbble">
-          <Dribbble className="size-5 text-white/80" />
+        <RoundIcon href="https://www.linkedin.com/in/anita-kumari-91160723/" sr="LinkedIn">
+          <Linkedin className="size-5 text-white/80" />
         </RoundIcon>
-        <RoundIcon href={socials?.instagram} sr="Instagram">
+        <RoundIcon href="https://www.instagram.com/anita60682024/" sr="Instagram">
           <Instagram className="size-5 text-white/80" />
         </RoundIcon>
-        <RoundIcon href={socials?.facebook} sr="Facebook">
+        <RoundIcon href="https://www.facebook.com/anita.kumari.1614" sr="Facebook">
           <Facebook className="size-5 text-white/80" />
         </RoundIcon>
       </div>
@@ -198,8 +199,10 @@ function RoundIcon({
   return (
     <a
       href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       aria-label={sr}
-      className="size-16 grid place-items-center rounded-full border border-white/10 bg-white/6 hover:bg-white/10 transition shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),0_10px_30px_rgba(0,0,0,0.35)]"
+      className="inline-flex items-center justify-center rounded-full bg-white/5 hover:bg-orange-500/20 transition p-2"
     >
       {children}
     </a>
