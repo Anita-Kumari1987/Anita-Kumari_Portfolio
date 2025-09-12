@@ -14,7 +14,7 @@ export default function ProjectCarousel() {
     const timer = setInterval(() => {
       setDirection(1);
       setIndex((i) => (i + 1) % projects.length);
-    }, 3000);
+    }, 3500); // 3s display + 0.5s transition
     return () => clearInterval(timer);
   }, []);
 
@@ -22,39 +22,41 @@ export default function ProjectCarousel() {
 
   return (
     <div className="flex flex-col min-h-screen justify-center">
-      <div className="relative w-[80vw] max-w-4xl aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl mx-auto md:ml-16">
-  <AnimatePresence mode="wait" custom={direction}>
-          <motion.img
-            key={project.img}
-            src={project.img}
-            alt={project.title}
-            custom={direction}
-            initial={{ x: direction > 0 ? 300 : -300, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
-            transition={{ duration: 0.7, ease: 'easeInOut' }}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </AnimatePresence>
-        {/* Glassy overlay, animated with image */}
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
-            key={project.title + '-details'}
-            custom={direction}
-            initial={{ x: direction > 0 ? 300 : -300, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
-            transition={{ duration: 0.7, ease: 'easeInOut' }}
-            className="absolute bottom-0 left-0 w-full flex justify-between items-end p-8 bg-gradient-to-t from-black/80 via-black/60 to-transparent"
-          >
-            <div>
-              <div className="text-gray-300 text-lg mb-1">Project</div>
-              <div className="text-3xl md:text-4xl font-bold text-orange-500 mb-4">{project.title}</div>
-              <div>
-                <span className="inline-block bg-white/10 px-4 py-2 rounded-full text-gray-200 text-base">{project.des}</span>
-              </div>
-              {/* Tech icons */}
-              <div className="flex gap-2 mt-4">
+      {/* Project image at the top */}
+      <div className="w-full flex justify-center mb-6">
+        <div className="relative w-[80vw] max-w-4xl aspect-[16/10] rounded-3xl overflow-hidden shadow-2xl mx-auto md:ml-16">
+          <AnimatePresence mode="wait" custom={direction}>
+            <motion.img
+              key={project.img}
+              src={project.img}
+              alt={project.title}
+              custom={direction}
+              initial={{ x: direction > 0 ? 300 : -300, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
+              transition={{ duration: 1.4, ease: 'easeInOut' }}
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 object-contain bg-black"
+              style={{ width: '900px', height: '580px' }}
+            />
+          </AnimatePresence>
+        </div>
+      </div>
+      {/* Project details below the image, animated with image */}
+      <AnimatePresence mode="wait" custom={direction}>
+        <motion.div
+          key={project.title + '-info'}
+          custom={direction}
+          initial={{ x: direction > 0 ? 300 : -300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: direction > 0 ? -300 : 300, opacity: 0 }}
+          transition={{ duration: 1.4, ease: 'easeInOut' }}
+          className="w-full flex justify-center mb-6"
+        >
+          <div className="max-w-4xl w-full flex flex-col md:flex-row justify-between items-center gap-8 px-0">
+            <div className="flex-1">
+              <div className="text-3xl md:text-4xl font-bold text-orange-500 mb-2">{project.title}</div>
+              <div className="text-gray-300 text-lg mb-4">{project.des}</div>
+              <div className="flex gap-2 mt-2">
                 {project.iconLists?.map((icon, i) => (
                   <img key={i} src={`/${icon}`} alt="" className="w-8 h-8 object-contain" />
                 ))}
@@ -65,9 +67,9 @@ export default function ProjectCarousel() {
                 <ArrowUpRight size={36} />
               </div>
             </Link>
-          </motion.div>
-        </AnimatePresence>
-      </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
       {/* Dots navigation */}
       <div className="flex gap-2 mt-6">
         {projects.map((_, i) => (

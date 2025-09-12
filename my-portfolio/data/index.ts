@@ -13,7 +13,7 @@ export const projects = [
     des: "A sleek cocktail recipe website for discovering and mixing cocktails.",
     img: "/images/my-projects/work-2.png",
     iconLists:["images/svg-Icons/re.svg", "images/TechIcons/figma.svg", "images/TechIcons/css.svg", "images/TechIcons/javascript.svg"],
-    link: "/ui.yoom.com",
+    link: "https://cocktail-kungen.netlify.app/",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const projects = [
     des: "A responsive e-commerce website featuring smooth user interactions.",
     img: "/images/my-projects/work-3.png",
     iconLists:["images/svg-Icons/re.svg", "images/TechIcons/figma.svg", "images/TechIcons/css.svg", "images/TechIcons/javascript.svg"],
-   link: "/ui.aiimg.com",
+   link: "https://maybejod.github.io/e-store/",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ export const projects = [
     des: "A game through dynamic questions fetching through API, tracks scores, and provides instant feedback.",
     img: "/images/my-projects/work-4.png",
     iconLists:["images/svg-Icons/re.svg", "images/TechIcons/figma.svg", "images/TechIcons/css.svg", "images/TechIcons/javascript.svg"],
-    link: "/ui.apple.com",
+    link: "https://silver-daffodil-1041d9.netlify.app/",
   },
     {
     id: 5,
@@ -37,7 +37,7 @@ export const projects = [
     des: "An interactive Web-XR project visualizes my career transition through a train journey.",
     img: "/images/my-projects/work-5.png",
     iconLists: ["images/svg-Icons/re.svg", "images/TechIcons/figma.svg", "images/TechIcons/css.svg", "images/TechIcons/javascript.svg", "images/svg-Icons/three.svg"],
-    link: "/ui.apple.com",
+    link: "https://immerssive-web.netlify.app/",
   },
     {
     id: 6,
@@ -45,6 +45,6 @@ export const projects = [
     des: "A weather app which provides real-time weather information for various locations.",
     img: "/images/my-projects/work-6.png",
     iconLists:["images/svg-Icons/re.svg", "images/TechIcons/figma.svg", "images/TechIcons/css.svg", "images/TechIcons/javascript.svg"],
-    link: "/ui.apple.com",
+    link: "https://anita-kumari1987.github.io/Weather-App/",
   },
 ];
