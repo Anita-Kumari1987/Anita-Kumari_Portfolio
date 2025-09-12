@@ -46,11 +46,18 @@ const faqs: QA[] = [
 export default function FAQJaydenDark() {
   return (
     <section className="relative overflow-hidden flex flex-col items-center justify-center min-h-screen w-[92%] isolate">
-      <div className="relative mx-auto max-w-5xl px-6 py-20">
-        <div className="mb-10 text-center">
-          <h2 className="mt-6 bg-clip-text text-left text-[72px] font-rajdhani tracking-tight text-transparent bg-gradient-to-b from-orange-200 to-orange-500">
+      {/* Background gradient effect */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,94,0,0.7)_0%,#0a0a0a_50%)] pointer-events-none" />
+      
+      <div className="relative mx-auto max-w-5xl px-6 py-20 z-10">
+        <div className="mb-12 text-center relative">
+          <h2 className="mt-6 bg-clip-text text-center text-[72px] font-rajdhani tracking-tight text-transparent bg-gradient-to-b from-orange-200 to-orange-500">
             FAQs
           </h2>
+          <p className="mt-4 text-lg text-white/70">Find answers to commonly asked questions</p>
+          {/* Decorative element */}
+          <div className="absolute -top-10 -right-10 w-32 h-32 bg-orange-500/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-orange-600/10 rounded-full blur-2xl" />
         </div>
 
         <Accordion items={faqs} />
@@ -63,92 +70,88 @@ export default function FAQJaydenDark() {
 /* ---------- Accordion (Jayden-style dark) ---------- */
 
 function Accordion({ items }: { items: QA[] }) {
-  const [openId, setOpenId] = React.useState<number | null>(1);
+  const [openId, setOpenId] = React.useState<number | null>(null);
 
   return (
-    <div role="list">
-      {items.map((item, i) => {
+    <div role="list" className="space-y-4">
+      {items.map((item) => {
         const isOpen = openId === item.id;
         const panelId = `faq-panel-${item.id}`;
         const buttonId = `faq-button-${item.id}`;
 
         return (
-          <div key={item.id} role="listitem" className="py-4">
+          <div key={item.id} role="listitem">
             <h3>
               <button
                 id={buttonId}
                 aria-controls={panelId}
                 aria-expanded={isOpen}
                 onClick={() => setOpenId(isOpen ? null : item.id)}
-                className="group flex w-full items-center justify-between gap-6 text-left"
+                className="group flex w-full flex-col text-left rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06]"
               >
-                {/* QUESTION — animate on scroll (once) */}
-                <span className="flex-1">
-                  <TextAnimate
-                    by="word"
-                    animation="blurInUp"
-                    once
-                    stagger={0.02}
-                    className="text-2xl font-light text-white/90 group-hover:text-white"
-                  >
-                    {item.question}
-                  </TextAnimate>
-                </span>
+                <div className="flex items-center justify-between w-full">
+                  <span className="flex-1">
+                    <TextAnimate
+                      by="word"
+                      animation="blurInUp"
+                      once
+                      delay={0.02}
+                      className="text-2xl font-light text-white/90 group-hover:text-white"
+                    >
+                      {item.question}
+                    </TextAnimate>
+                  </span>
 
-                {/* Plus → X circle */}
-                <span
-                  aria-hidden="true"
-                  className={`grid h-15 w-10 shrink-0 place-items-center rounded-full border transition ${
-                    isOpen ? "border-white/20 bg-white/15" : "border-white/10 bg-white/5"
+                  {/* Plus/Minus circle */}
+                  <span
+                    aria-hidden="true"
+                    className={`grid h-10 w-10 shrink-0 place-items-center rounded-full border transition-all duration-300 ${
+                      isOpen 
+                        ? "border-orange-400/30 bg-gradient-to-br from-orange-500/20 to-orange-600/10" 
+                        : "border-white/10 bg-white/5 group-hover:border-orange-400/20 group-hover:bg-gradient-to-br group-hover:from-orange-500/10 group-hover:to-orange-600/5"
+                    }`}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-4 w-4 text-white transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      {isOpen ? (
+                        <path d="M5 12h14" strokeLinecap="round" />
+                      ) : (
+                        <path d="M12 5v14M5 12h14" strokeLinecap="round" />
+                      )}
+                    </svg>
+                  </span>
+                </div>
+
+                {/* Answer section */}
+                <div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={buttonId}
+                  className={`overflow-hidden transition-all duration-300 ease-out ${
+                    isOpen ? "mt-6 max-h-[500px] opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    className={`h-4 w-4 text-white transition-transform ${
-                      isOpen ? "rotate-45" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M12 5v14M5 12h14" strokeLinecap="round" />
-                  </svg>
-                </span>
-              </button>
-            </h3>
-
-            <div
-              id={panelId}
-              role="region"
-              aria-labelledby={buttonId}
-              className={`grid overflow-hidden transition-all duration-300 ease-out ${
-                isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-              }`}
-            >
-              <div className="min-h-0">
-                {/* ANSWER — animate when opened (mounts only while open) */}
-                {isOpen && (
                   <TextAnimate
                     as="p"
                     by="word"
                     animation="blurInUp"
-                    stagger={0.012}
+                    delay={0.012}
                     duration={0.6}
-                    className="mt-2 max-w-3xl text-base leading-relaxed text-white/70"
+                    className="text-base leading-relaxed text-white/70 border-t border-white/10 pt-6"
                   >
                     {item.answer}
                   </TextAnimate>
-                )}
-              </div>
-            </div>
-
-            {/* ONE separator only; hidden after the last item */}
-            {i < items.length - 1 && (
-              <div className="mt-8 h-px w-full bg-white/15" />
-            )}
+                </div>
+              </button>
+            </h3>
           </div>
         );
       })}
     </div>
-  );
-}
+  )}
+  

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  Home, User, FolderOpenDot, BriefcaseBusiness, Layers, MessageSquare, Mail, Quote, LucideIcon,
+  Home, User, FolderOpenDot, BriefcaseBusiness, Layers, MessageSquare, Mail, Quote, HelpCircle, LucideIcon,
 } from "lucide-react";
 
 type Item = { label: string; href: string; Icon: LucideIcon };
@@ -16,6 +16,7 @@ const ITEMS: Item[] = [
   { label: "Tech-Stack", href: "/about/tech-stack", Icon: Layers },
   { label: "Chat", href: "/lets-chat", Icon: MessageSquare },
   { label: "Mail", href: "/contact", Icon: Mail },
+  { label: "FAQ", href: "/faq", Icon: HelpCircle },
   { label: "Testimonials", href: "/testimonial", Icon: Quote },
 ];
 
@@ -24,7 +25,7 @@ export default function RightSidebar() {
 
   return (
     <aside className="fixed right-6 top-1/2 -translate-y-1/2 z-50">
-      <nav className="relative isolate flex w-[72px] flex-col items-center gap-5 rounded-full border border-white/10 bg-gradient-to-b from-[#1a0f07] via-[#150c06] to-[#0d0704] py-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+      <nav className="relative isolate flex w-[72px] flex-col items-center gap-3 md:gap-4 rounded-full border border-white/10 bg-gradient-to-b from-[#1a0f07] via-[#150c06] to-[#0d0704] py-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
         {/* Background glow */}
         <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-b from-orange-500/10 via-amber-500/5 to-transparent" />
         {/* Bottom blur gradient */}
@@ -37,9 +38,12 @@ export default function RightSidebar() {
               key={label}
               href={href}
               aria-current={isActive ? "page" : undefined}
-              className="group relative grid h-12 w-12 place-items-center rounded-full text-slate-300/80 transition-all duration-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
-              title={label}
+              className="group relative grid h-10 w-10 place-items-center rounded-full text-slate-300/80 transition-all duration-100 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
             >
+              {/* Custom Tooltip */}
+              <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-100">
+                {label}
+              </span>
               <span
                 className={`absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-white/20 to-white/5 transition-all duration-300 ${
                   isActive 
@@ -48,9 +52,9 @@ export default function RightSidebar() {
                 }`}
               />
               <Icon 
-                className={`h-6 w-6 transition-transform duration-300 ${
+                className={`transition-transform duration-300 ${
                   isActive ? "scale-110" : "group-hover:scale-110"
-                }`} 
+                } h-5 w-5`} 
                 strokeWidth={1.5} 
               />
               <span className="sr-only">{label}</span>

@@ -18,7 +18,6 @@ export const TOPICS = [
 export const schema = z.object({
   name: z.string().trim().min(2, "Name must be at least 2 characters"),
   email: z.string().trim().email("Enter a valid email"),
-  subject: z.string().trim().min(3, "Subject must be at least 3 characters"),
   topic: z.enum(TOPICS),
   message: z
     .string()
@@ -69,10 +68,10 @@ export default function ContactFormCard() {
         role="status"
       >
         <BorderSpotlight />
-        <h2 className="mb-2 text-[72px] font-rajdhani text-green-700">
+        <h2 className="mb-2 text-[40px] font-rajdhani text-cyan-200">
           Thanks! I’ll reply soon.
         </h2>
-        <p className="text-center text-slate-300/85">
+        <p className="text-center text-green-700">
           Your message was sent successfully.
         </p>
       </motion.div>
@@ -92,10 +91,10 @@ export default function ContactFormCard() {
     >
       <BorderSpotlight />
 
-      <fieldset disabled={isSubmitting} className="space-y-5">
+      <fieldset disabled={isSubmitting} className="space-y-8">
         {/* Name */}
         <div>
-          <label htmlFor="name" className="mb-1 block font-medium text-white">
+          <label htmlFor="name" className="mb-4 block ml-5 font-medium text-white text-2xl">
             Name
           </label>
           <input
@@ -103,13 +102,13 @@ export default function ContactFormCard() {
             type="text"
             autoComplete="name"
             {...register("name")}
-            className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/60"
+            className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-white text-xl placeholder:text-xl placeholder-white/40 focus:outline-none focus-visible:ring-2  focus-visible:ring-blue-400/60"
             placeholder="Your name"
             aria-invalid={!!errors.name}
             aria-describedby={errors.name ? "name-error" : undefined}
           />
           {errors.name && (
-            <span id="name-error" className="mt-1 block text-sm text-red-500">
+            <span id="name-error" className="mt-2 block text-xl font-light text-red-500">
               {errors.name.message}
             </span>
           )}
@@ -117,7 +116,7 @@ export default function ContactFormCard() {
 
         {/* Email */}
         <div>
-          <label htmlFor="email" className="mb-1 block font-medium text-white">
+          <label htmlFor="email" className="mb-4 ml-4 block font-medium text-white text-2xl">
             Email
           </label>
           <input
@@ -125,44 +124,22 @@ export default function ContactFormCard() {
             type="email"
             autoComplete="email"
             {...register("email")}
-            className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/60"
+            className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-white text-xl placeholder:text-xl placeholder-white/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/60"
             placeholder="you@company.com"
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? "email-error" : undefined}
           />
           {errors.email && (
-            <span id="email-error" className="mt-1 block text-sm text-red-500">
+            <span id="email-error" className="mt-2 block text-xl font-light text-red-500">
               {errors.email.message}
-            </span>
-          )}
-        </div>
-
-        {/* Subject */}
-        <div>
-          <label htmlFor="subject" className="mb-1 block font-medium text-white">
-            Subject
-          </label>
-          <input
-            id="subject"
-            type="text"
-            autoComplete="off"
-            {...register("subject")}
-            className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/60"
-            placeholder="What’s this about?"
-            aria-invalid={!!errors.subject}
-            aria-describedby={errors.subject ? "subject-error" : undefined}
-          />
-          {errors.subject && (
-            <span id="subject-error" className="mt-1 block text-sm text-red-500">
-              {errors.subject.message}
             </span>
           )}
         </div>
 
         {/* Topic */}
         <div>
-          <label htmlFor="topic" className="mb-1 block font-medium text-white">
-            Topic
+          <label htmlFor="topic" className="mb-4 ml-4 block font-medium text-white text-2xl">
+            Subject
           </label>
           <select
             id="topic"
@@ -170,12 +147,12 @@ export default function ContactFormCard() {
             {...register("topic", {
               validate: (v) => (v ? true : "Please select a topic"),
             })}
-            className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white"
+            className="w-full appearance-none rounded-2xl border border-white/10 bg-white/5 px-4 py-4 pr-12 text-white text-xl backdrop-blur-xl placeholder:text-xl placeholder-white/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/60 [background:url('/images/svg-Icons/down-arrow.svg')_no-repeat_right_1rem_center] [background-size:24px] [&::-ms-expand]:hidden"
             aria-invalid={!!errors.topic}
             aria-describedby={errors.topic ? "topic-error" : undefined}
           >
             <option value="" disabled>
-              Select a topic…
+              Select a subject…
             </option>
             {TOPICS.map((t) => (
               <option key={t} value={t}>
@@ -184,7 +161,7 @@ export default function ContactFormCard() {
             ))}
           </select>
           {errors.topic && (
-            <span id="topic-error" className="text-sm text-red-500">
+            <span id="topic-error" className="mt-2 block text-xl font-light text-red-500">
               {errors.topic.message}
             </span>
           )}
@@ -192,42 +169,40 @@ export default function ContactFormCard() {
 
         {/* Message */}
         <div>
-          <label htmlFor="message" className="mb-1 block font-medium text-white">
+          <label htmlFor="message" className="mb-4 ml-4 block font-medium text-white text-2xl">
             Message
           </label>
           <textarea
             id="message"
-            rows={5}
-            autoComplete="off"
             {...register("message")}
-            className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/60"
-            placeholder="Tell me about your project, timeline, and goals…"
-            aria-invalid={!!errors.message}
-            aria-describedby={errors.message ? "message-error" : undefined}
+            rows={4}
+            className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-white text-xl placeholder:text-xl placeholder-white/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/60"
+            placeholder="Your message..."
           />
           {errors.message && (
-            <span id="message-error" className="mt-1 block text-sm text-red-500">
+            <span id="message-error" className="mt-2 block text-xl font-light text-red-500">
               {errors.message.message}
             </span>
           )}
         </div>
 
         {/* Consent */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <input
             id="consent"
             type="checkbox"
             {...register("consent")}
-            className="rounded border-white/20 bg-white/10 text-blue-500 focus:ring-blue-400/60"
+            className="h-6 w-6 rounded border-white/20 bg-white/10 text-blue-500 focus:ring-blue-400/60"
             aria-invalid={!!errors.consent}
             aria-describedby={errors.consent ? "consent-error" : undefined}
           />
-          <label htmlFor="consent" className="text-sm text-white">
+          <label htmlFor="consent" className="text-xl  text-white">
             You can contact me at this email.
           </label>
         </div>
         {errors.consent && (
-          <span id="consent-error" className="mt-1 block text-sm text-red-500">
+          
+          <span id="consent-error" className="mt-1 block text-xl font-light text-red-500">
             {errors.consent.message}
           </span>
         )}
@@ -243,22 +218,30 @@ export default function ContactFormCard() {
           </div>
         )}
 
-        <motion.button
-          type="submit"
-          className="mt-4 inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-violet-500 to-cyan-500 px-6 py-3 font-semibold text-white shadow-[0_0_0_1.5px_rgba(168,85,247,0.7)] transition hover:-translate-y-0.5 hover:shadow-[0_0_0_2px_rgba(168,85,247,0.9)] focus-visible:ring-2 focus-visible:ring-blue-400/60"
-          disabled={isSubmitting}
-          aria-busy={isSubmitting}
-          whileHover={{ y: -2 }}
-        >
-          {isSubmitting && (
-            <span
-              className="mr-2 h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent"
-              role="status"
-              aria-label="Loading"
-            />
-          )}
-          Send message
-        </motion.button>
+        <div className="flex justify-center mt-8">
+          <motion.button
+            type="submit"
+            className="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-r from-black via-orange-950 to-orange-900 px-8 py-4 text-xl font-semibold text-white shadow-xl transition-all duration-300 hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+            disabled={isSubmitting}
+            aria-busy={isSubmitting}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
+          >
+            <span className="relative flex items-center gap-2">
+              {isSubmitting && (
+                <span
+                  className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent"
+                  role="status"
+                  aria-label="Loading"
+                />
+              )}
+              <span className="bg-gradient-to-r from-orange-200 to-orange-100 bg-clip-text font-bold text-transparent">
+                Send message
+              </span>
+            </span>
+            <span className="absolute inset-0 transform bg-gradient-to-r from-black via-orange-900 to-orange-800 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          </motion.button>
+        </div>
       </fieldset>
     </motion.form>
   );

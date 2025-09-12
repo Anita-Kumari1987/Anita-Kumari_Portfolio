@@ -79,12 +79,13 @@ export default function TestimonialsJayden({
   return (
     <section
       className={cn(
-        "relative isolate min-h-screen w-[92%] mrmx-auto px-2 py-16 md:py-20",
+        "relative isolate min-h-screen w-[92%] mrmx-auto px-2 py-16 md:py-8",
         className
+    
       )}
     >
       {/* left-bottom shaded backdrop */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,94,0,0.7)_0%,#0a0a0a_50%)] pointer-events-none" />
+      <div className="absolute rounded-3xl inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,94,0,0.7)_0%,#0a0a0a_50%)] pointer-events-none" />
 
       {/* Heading */}
       <div className="max-w-7xl mx-auto relative z-10">
@@ -113,7 +114,7 @@ export default function TestimonialsJayden({
             )}
           >
             <span className="mr-3 text-white/60">“</span>
-            <div className="text-4xl leading-relaxed font-extralight">
+            <div className="text-3xl leading-relaxed font-extralight">
               {current.quote}
             </div>
             <span className="ml-3 text-white/60">”</span>

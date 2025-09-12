@@ -23,7 +23,6 @@ const TopicEnum = z.enum([...TOPICS] as [
 const schema = z.object({
   name: z.string().trim().min(2, "Name must be at least 2 characters"),
   email: z.string().trim().email("Enter a valid email"),
-  subject: z.string().trim().min(3, "Subject must be at least 3 characters"),
   // Mirror the client: convert "" → undefined so required_error triggers nicely
   topic: z.preprocess((v) => (v === "" ? undefined : v), TopicEnum),
   message: z
@@ -60,7 +59,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const { name, email, subject, topic, message } = parsed.data;
+  const { name, email, topic, message } = parsed.data;
 
   //3) (Optional) Send email via Resend / Nodemailer
   if (process.env.RESEND_API_KEY && process.env.CONTACT_TO_EMAIL) {
@@ -71,7 +70,7 @@ export async function POST(req: NextRequest) {
       await resend.emails.send({
         from: process.env.CONTACT_FROM_EMAIL!,
         to: process.env.CONTACT_TO_EMAIL,
-        subject: `[${topic}] ${subject}`,
+        subject: `Portfolio Contact: ${topic}`,
         html: `Name: ${name} \n Email: ${email} \n Topic: ${topic} \n\n ${message}`,
       });
     } catch (e) {
