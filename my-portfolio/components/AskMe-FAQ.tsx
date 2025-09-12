@@ -26,14 +26,7 @@ export default function AskMe() {
         <div className="mt-10">
           <Link
             href="/contact"
-            className="
-              text-lg sm:text-xl md:text-xl font-light
-              text-white/90
-               border-1 p-3 rounded-full py-3 px-6
-                decoration-white/70
-              hover:text-orange-300 hover:decoration-orange-400
-              transition-colors
-            "
+            className="inline-block text-lg sm:text-xl font-semibold text-white rounded-full px-8 py-3 bg-gradient-to-r from-orange-500 via-orange-400 to-amber-500 shadow-lg hover:from-orange-600 hover:to-amber-400 hover:shadow-orange-400/30 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400"
           >
             Ask me directly
           </Link>

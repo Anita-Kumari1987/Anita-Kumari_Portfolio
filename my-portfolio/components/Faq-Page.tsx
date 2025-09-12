@@ -47,14 +47,14 @@ export default function FAQJaydenDark() {
   return (
     <section className="relative overflow-hidden flex flex-col items-center justify-center min-h-screen w-[92%] isolate">
       {/* Background gradient effect */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,94,0,0.7)_0%,#0a0a0a_50%)] pointer-events-none" />
+      <div className="absolute rounded-3xl inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,94,0,0.7)_0%,#0a0a0a_50%)] pointer-events-none" />
       
       <div className="relative mx-auto max-w-5xl px-6 py-20 z-10">
         <div className="mb-12 text-center relative">
-          <h2 className="mt-6 bg-clip-text text-center text-[72px] font-rajdhani tracking-tight text-transparent bg-gradient-to-b from-orange-200 to-orange-500">
+          <h2 className="bg-clip-text text-center text-[72px] font-rajdhani tracking-tight text-transparent bg-gradient-to-b from-orange-200 to-orange-500">
             FAQs
           </h2>
-          <p className="mt-4 text-lg text-white/70">Find answers to commonly asked questions</p>
+          <p className=" text-lg text-white/70">Find answers to commonly asked questions</p>
           {/* Decorative element */}
           <div className="absolute -top-10 -right-10 w-32 h-32 bg-orange-500/10 rounded-full blur-3xl" />
           <div className="absolute -bottom-8 -left-8 w-24 h-24 bg-orange-600/10 rounded-full blur-2xl" />
@@ -73,7 +73,7 @@ function Accordion({ items }: { items: QA[] }) {
   const [openId, setOpenId] = React.useState<number | null>(null);
 
   return (
-    <div role="list" className="space-y-4">
+    <div role="list" className="space-y-8">
       {items.map((item) => {
         const isOpen = openId === item.id;
         const panelId = `faq-panel-${item.id}`;
