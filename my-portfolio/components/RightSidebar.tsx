@@ -40,8 +40,8 @@ export default function RightSidebar() {
               aria-current={isActive ? "page" : undefined}
               className="group relative grid h-10 w-10 place-items-center rounded-full text-slate-300/80 transition-all duration-100 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
             >
-              {/* Custom Tooltip */}
-              <span className="absolute top-full mt-2 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-100">
+              {/* Custom Tooltip - left side */}
+              <span className="absolute right-full top-1/2 -translate-y-1/2 mr-3 px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/10 text-white text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-100">
                 {label}
               </span>
               <span

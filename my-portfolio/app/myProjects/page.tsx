@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import RecentProjects from "../../components/Projects"; 
+import ProjectCarousel from "@/components/ProjectCarousel";
 
 export const metadata: Metadata = {
   title: "My Projects",
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <section className="px-6 py-12">
-      <RecentProjects />
+      <ProjectCarousel />
     </section>
   );
 }
