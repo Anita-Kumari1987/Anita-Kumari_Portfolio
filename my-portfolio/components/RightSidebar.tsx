@@ -7,15 +7,15 @@ import { Home, User, FolderOpenDot, BriefcaseBusiness, Layers, BookOpen, Mail, Q
 type Item = { label: string; href: string; Icon: LucideIcon };
 
 const ITEMS: Item[] = [
-  { label: "Home", href: "/", Icon: Home },
-  { label: "About", href: "/about", Icon: User },
-  { label: "My Projects", href: "/myProjects", Icon: FolderOpenDot },
-  { label: "My Experiences", href: "/about/experience", Icon: BriefcaseBusiness },
-  { label: "Tech-Stack", href: "/about/tech-stack", Icon: Layers },
-  { label: "Education", href: "/about/education", Icon: BookOpen },
-  { label: "Mail", href: "/contact", Icon: Mail },
-  { label: "FAQ", href: "/faq", Icon: HelpCircle },
-  { label: "Testimonials", href: "/testimonial", Icon: Quote },
+  { label: "Home", href: "#home", Icon: Home },
+  { label: "About", href: "#about", Icon: User },
+  { label: "Education", href: "#education", Icon: BookOpen },
+  { label: "My Experiences", href: "#experience", Icon: BriefcaseBusiness },
+  { label: "Tech-Stack", href: "#techstack", Icon: Layers },
+  { label: "My Projects", href: "#projects", Icon: FolderOpenDot },
+  { label: "Testimonials", href: "#testimonials", Icon: Quote },
+  { label: "FAQ", href: "#faq", Icon: HelpCircle },
+  { label: "Contact", href: "#contact", Icon: Mail },
 ];
 
 export default function RightSidebar() {
@@ -29,36 +29,21 @@ export default function RightSidebar() {
         {/* Bottom blur gradient */}
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-orange-900/50 via-orange-800/20 to-transparent rounded-b-full pointer-events-none" />
         
-        {ITEMS.map(({ label, href, Icon }) => {
-          const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
-          return (
-            <Link
-              key={label}
-              href={href}
-              aria-current={isActive ? "page" : undefined}
-              className="group relative grid h-10 w-10 place-items-center rounded-full text-slate-300/80 transition-all duration-100 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
-            >
-              {/* Custom Tooltip - left side */}
-              <span className="absolute right-full top-1/2 -translate-y-1/2 mr-3 px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/10 text-white text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-100">
-                {label}
-              </span>
-              <span
-                className={`absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-white/20 to-white/5 transition-all duration-300 ${
-                  isActive 
-                    ? "opacity-100 scale-100" 
-                    : "opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100"
-                }`}
-              />
-              <Icon 
-                className={`transition-transform duration-300 ${
-                  isActive ? "scale-110" : "group-hover:scale-110"
-                } h-5 w-5`} 
-                strokeWidth={1.5} 
-              />
-              <span className="sr-only">{label}</span>
-            </Link>
-          );
-        })}
+        {ITEMS.map(({ label, href, Icon }) => (
+          <a
+            key={label}
+            href={href}
+            className="group relative grid h-10 w-10 place-items-center rounded-full text-slate-300/80 transition-all duration-100 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 scroll-smooth"
+          >
+            {/* Custom Tooltip - left side */}
+            <span className="absolute right-full top-1/2 -translate-y-1/2 mr-3 px-3 py-1.5 bg-white/10 backdrop-blur-sm border border-white/10 text-white text-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-100">
+              {label}
+            </span>
+            <span className="absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-white/20 to-white/5 transition-all duration-300 opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100" />
+            <Icon className="transition-transform duration-300 group-hover:scale-110 h-5 w-5" strokeWidth={1.5} />
+            <span className="sr-only">{label}</span>
+          </a>
+        ))}
       </nav>
     </aside>
   );
