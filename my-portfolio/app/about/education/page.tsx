@@ -1,7 +1,8 @@
-import EducationTimeline from "@/components/EducationTimeline";
+import EducationClient from "./EducationClient";
+
 
 export const metadata = { title: "Education" };
 
 export default function Page() {
-  return <EducationTimeline />;
+  return <EducationClient />;
 }

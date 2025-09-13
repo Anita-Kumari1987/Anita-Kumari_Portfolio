@@ -1,9 +1,5 @@
-import Testimonials from "@/components/Testimonials";
+import TestimonialClient from "./TestimonialClient";
 
 export default function Page() {
-  return (
-    <>
-      <Testimonials />
-    </>
-  );
+  return <TestimonialClient />;
 }

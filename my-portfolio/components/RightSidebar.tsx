@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  Home, User, FolderOpenDot, BriefcaseBusiness, Layers, MessageSquare, Mail, Quote, HelpCircle, LucideIcon,
-} from "lucide-react";
+import { Home, User, FolderOpenDot, BriefcaseBusiness, Layers, BookOpen, Mail, Quote, HelpCircle, LucideIcon } from "lucide-react";
 
 type Item = { label: string; href: string; Icon: LucideIcon };
 
@@ -14,7 +12,7 @@ const ITEMS: Item[] = [
   { label: "My Projects", href: "/myProjects", Icon: FolderOpenDot },
   { label: "My Experiences", href: "/about/experience", Icon: BriefcaseBusiness },
   { label: "Tech-Stack", href: "/about/tech-stack", Icon: Layers },
-  { label: "Chat", href: "/lets-chat", Icon: MessageSquare },
+  { label: "Education", href: "/about/education", Icon: BookOpen },
   { label: "Mail", href: "/contact", Icon: Mail },
   { label: "FAQ", href: "/faq", Icon: HelpCircle },
   { label: "Testimonials", href: "/testimonial", Icon: Quote },

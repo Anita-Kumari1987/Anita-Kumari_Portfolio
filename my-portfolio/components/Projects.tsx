@@ -1,8 +1,8 @@
 "use client";
 
 import { FaLocationArrow } from "react-icons/fa6";
-import Image from "next/image";
 import { projects } from "@/data";
+import Image from "next/image";
 import { PinContainer } from "./ui/Pin";
 
 const RecentProjects = () => {
@@ -62,7 +62,7 @@ const RecentProjects = () => {
                           transform: `translateX(-${5 * index + 2}px)`,
                         }}
                       >
-                        <img src={icon} alt="icon5" className="p-2" />
+                        <Image src={icon.startsWith('/') ? icon : `/${icon}`} alt="icon5" width={32} height={32} className="p-2" />
                       </div>
                     ))}
                   </div>
