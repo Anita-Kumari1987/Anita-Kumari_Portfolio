@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import SidebarCard from "../components/LeftSidebar";
 import RightSidebar from "../components/RightSidebar";
+import TopRightGridButton from "../components/TopRightGridButton";
 import { Outfit, Dancing_Script, Rajdhani } from "next/font/google";
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
@@ -44,7 +45,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   <div className="absolute -inset-[10%] pointer-events-none bg-[radial-gradient(closest-side,transparent_65%,rgba(0,0,0,0.35)_100%)]" />
 </div>
 
-        {/* ---- UI LAYERS (above the background) ---- */}
+  {/* ---- UI LAYERS (above the background) ---- */}
+  <TopRightGridButton />
         {/* fixed left sidebar visible on ALL pages */}
         <div
           className="fixed left-0 top-0 h-screen p-4 sm:p-6 w-[380px] xl:w-[420px] overflow-y-auto z-20"

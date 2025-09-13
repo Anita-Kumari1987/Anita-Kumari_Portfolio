@@ -22,7 +22,8 @@ export default function SidebarCard({
   socials,
 }: Props) {
   return (
-    <aside className="relative rounded-[28px] border border-white/10 bg-[#0f1316]/80 backdrop-blur-xl p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_40px_80px_-20px_rgba(0,0,0,0.6)] min-h-[600px]">
+    <div className="flex flex-col justify-center h-screen">
+      <aside className="relative rounded-[28px] border border-white/10 bg-[#0f1316]/80 backdrop-blur-xl p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_40px_80px_-20px_rgba(0,0,0,0.6)] min-h-[600px]">
       <style jsx global>{`
         @keyframes nameAppear {
           from { 
@@ -173,7 +174,8 @@ export default function SidebarCard({
           </Link>
         </div>
       </div>
-    </aside>
+      </aside>
+    </div>
   );
 }
 
