@@ -39,7 +39,7 @@ export default function Page() {
       </div>
 
       {/* My Approach Section */}
-      <div id="approach" className="scroll-mt-24 mb-24">
+      {/* <div id="approach" className="scroll-mt-24 mb-24">
         <section className="relative isolate overflow-hidden flex flex-col items-center justify-center min-h-screen w-[92%] px-6 py-16 md:py-24">
           <h1 className="bg-clip-text text-center text-[72px] font-rajdhani tracking-tight text-transparent bg-gradient-to-b from-orange-200 to-orange-500 mb-8">My Approach</h1>
           <p className="text-lg md:text-xl text-white/80 max-w-3xl text-center mb-8">I believe in a user-centered, iterative process—combining creativity, empathy, and technical skill to deliver impactful digital experiences.</p>
@@ -51,7 +51,7 @@ export default function Page() {
             <li>Deliver clean, maintainable code</li>
           </ul>
         </section>
-      </div>
+      </div> */}
 
       {/* My Projects Section */}
       <div id="projects" className="scroll-mt-24 mb-24">
@@ -68,10 +68,10 @@ export default function Page() {
         <FAQJaydenDark />
       </div>
 
-      {/* Chat Section */}
+      {/* Chat Section
       <div id="chat" className="scroll-mt-24 mb-24">
-        <LetsChatPage />
-      </div>
+        <LetsChatPage /> */}
+      {/* </div> */}
 
       {/* Contact Section */}
       <div id="contact" className="scroll-mt-24 mb-24">

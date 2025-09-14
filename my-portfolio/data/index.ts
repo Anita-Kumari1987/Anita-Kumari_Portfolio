@@ -5,7 +5,7 @@ export const projects = [
     des: "An interactive portfolio blending sleek design, smooth animations, and user-focused features.",
     img: "/images/my-projects/work-1.png",
     iconLists: ["images/svg-Icons/re.svg", "images/svg-Icons/tail.svg", "images/svg-Icons/ts.svg", "images/svg-Icons/next.svg", "images/TechIcons/figma.svg", "images/TechIcons/magicui.jpeg", "images/TechIcons/shadcn.png"],
-    link: "/ui.earth.com",
+    link: "https://anita-kumari-portfolio.vercel.app/",
   },
   {
     id: 2,
