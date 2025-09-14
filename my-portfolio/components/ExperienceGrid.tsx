@@ -49,7 +49,7 @@ const CARDS: Card[] = [
 export default function ExperienceGrid() {
   return (
     <MotionConfig reducedMotion="never">
-      <section className="relative isolate overflow-hidden flex flex-col items-center justify-start min-h-screen w-[92%] px-6 py-12 md:py-16">
+      <section className="relative isolate overflow-hidden flex flex-col items-center justify-start rounded-3xl min-h-screen w-[92%] px-6 py-12 md:py-16">
         {/* Dark base layer */}
         <div className="pointer-events-none absolute inset-0 -z-30 bg-[#0b0f1a] opacity-60" />
         

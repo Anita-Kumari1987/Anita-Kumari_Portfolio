@@ -45,7 +45,7 @@ const faqs: QA[] = [
 
 export default function FAQJaydenDark() {
 	return (
-		<section className="relative overflow-hidden flex flex-col items-center justify-center min-h-screen w-[92%] isolate">
+		<section className="relative overflow-hidden flex flex-col items-center justify-center rounded-3xl min-h-screen w-[92%] isolate">
 			{/* Background gradient effect with opacity */}
 			<div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,94,0,0.7)_0%,#0a0a0a_50%)] opacity-60 backdrop-blur-md pointer-events-none" />
 

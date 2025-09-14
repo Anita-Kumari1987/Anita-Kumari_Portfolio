@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Twitter, Dribbble, Facebook, Instagram, ArrowUpRight } from "lucide-react";
+import {  Facebook, Instagram, ArrowUpRight } from "lucide-react";
 import { Github, Linkedin } from "lucide-react";
 import Logo3D from "./Logo3D";
 
@@ -179,15 +179,7 @@ export default function SidebarCard({
   );
 }
 
-// function LogoMark() {
-//   return (
-//     <div className="grid place-items-center size-10 rounded-md bg-white text-neutral-900 shadow-[0_6px_18px_rgba(0,0,0,0.3)]">
-//       <svg viewBox="0 0 24 24" className="size-6" aria-hidden>
-//         <path d="M12 2l5 4-5 4-5-4 5-4zm0 12l5 4-5 4-5-4 5-4z" fill="currentColor" />
-//       </svg>
-//     </div>
-//   );
-// }
+
 
 function RoundIcon({
   href = "#",

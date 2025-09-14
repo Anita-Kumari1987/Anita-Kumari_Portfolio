@@ -23,6 +23,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="h-full">
       <body className={`${outfit.variable} ${dancingScript.variable} ${rajdhani.variable} font-sans text-white relative`}>
+        {/* Skip to main content link for accessibility */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only absolute top-2 left-2 bg-orange-500 text-white px-4 py-2 z-50 rounded"
+        >
+          Skip to main content
+        </a>
         {/* ---- GLOBAL BACKGROUND (fixed so it spans ALL pages & scroll) ---- */}
         <div
           className="fixed inset-0 -z-10 overflow-hidden"
@@ -69,6 +76,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 
         {/* main scrollable content with left padding equal to sidebar width */}
         <main
+          id="main-content"
           className="min-h-screen px-6 md:px-10 py-8 relative z-10"
           style={{ marginLeft: SIDEBAR_W }}
         >

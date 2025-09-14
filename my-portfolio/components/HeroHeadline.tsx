@@ -6,7 +6,7 @@ type HeaderTextProps = { name?: string };
 
 export default function HeroHeadline({ name = "Anita" }: HeaderTextProps) {
   return (
-    <section className="relative isolate overflow-hidden flex flex-col items-center justify-start min-h-screen w-[92%] px-6 py-12 md:py-10">
+    <section className="relative isolate overflow-hidden flex flex-col rounded-3xl items-center justify-start min-h-screen w-[92%] px-6 py-12 md:py-24 ">
        <LocalTime /> 
       {/* subtle washes for readability */}
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-black/20 via-transparent to-black/20" />

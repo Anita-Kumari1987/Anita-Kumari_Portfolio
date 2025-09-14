@@ -1,3 +1,9 @@
+/* Keyboard accessibility: visible focus style */
+:focus-visible {
+  outline: 2px solid #fb923c;
+  outline-offset: 2px;
+  transition: outline 0.2s;
+}
 @import "tailwindcss";
 @import "tw-animate-css";
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Rajdhani:wght@400;700&display=swap');

@@ -53,7 +53,7 @@ const ITEMS: Item[] = [
 
 export default function EducationPage() {
   return (
-    <section className="relative flex flex-col w-[92%] px-6 py-10 md:py-12">
+    <section className="relative flex flex-col w-[92%] px-6 py-10 rounded-3xl md:py-12">
       {/* orange radial background to match About */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_bottom_left,rgba(255,94,0,0.2)_0%,transparent_55%)]" />
 
