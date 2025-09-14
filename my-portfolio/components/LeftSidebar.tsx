@@ -2,18 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {  Facebook, Instagram, ArrowUpRight } from "lucide-react";
-import { Github, Linkedin } from "lucide-react";
-import Logo3D from "./Logo3D";
+import { Facebook, Instagram, ArrowUpRight, Github, Linkedin } from "lucide-react";
 
 type Props = {
-  availabilityCount: number;
+  availabilityCount?: number;
   name: string;
   email: string;
   location: string;
   avatar: { src: string; alt?: string };
-  socials?: { x?: string; dribbble?: string; instagram?: string; facebook?: string };
+  socials?: { github?: string; linkedin?: string; instagram?: string; facebook?: string };
 };
+
 export default function SidebarCard({
   name,
   email,
@@ -22,164 +21,135 @@ export default function SidebarCard({
   socials,
 }: Props) {
   return (
-    <div className="flex flex-col justify-center h-screen">
-      <aside className="relative rounded-[28px] border border-white/10 bg-[#0f1316]/80 backdrop-blur-xl p-6 shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_40px_80px_-20px_rgba(0,0,0,0.6)] min-h-[600px]">
-      <style jsx global>{`
-        @keyframes nameAppear {
-          from { 
-            opacity: 0; 
-            transform: translateY(40px) rotate(6deg);
-          }
-          to { 
-            opacity: 0.95; 
-            transform: translateY(0) rotate(6deg);
-          }
-        }
-
-        @keyframes custom-spin {
-          from {
-            transform: rotateY(0deg);
-          }
-          to {
-            transform: rotateY(360deg);
-          }
-        }
-
-        .animate-custom-spin {
-          animation: custom-spin 3s linear infinite;
-          transform-style: preserve-3d;
-        }
-      `}</style>
-      
-      {/* Top section with logo and availability */}
-      <div className="flex items-center justify-between mb-6">
-        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
-          <Image
-            src="/images/logo.png"
-            alt="Logo"
-            width={40}
-            height={40}
-            className="animate-custom-spin rounded-full"
-            style={{ 
-              perspective: '1000px'
-            }}
-          />
-        </div>
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
-          <div className="w-2 h-2 rounded-full bg-cyan-400"></div>
-          <span className="text-white/80 text-sm">Available to work </span>
-        </div>
-      </div>
-
-      {/* Profile section with gradient blur effect */}
-      <div className="mt-6 rounded-[24px] relative h-96">
-        {/* Image container with overflow and blur background */}
-        <div className="absolute inset-0 rounded-[24px] overflow-hidden">
-          {/* Blurred background for depth */}
-          <div className="absolute inset-0 scale-105">
-            <div className="absolute inset-x-0 bottom-0 h-1/2 blur-xl">
-              <Image
-                src="/images/myPhoto.jpeg"
-                alt=""
-                fill
-                className="object-cover object-top"
-              />
-            </div>
-          </div>
-          
-          {/* Main sharp image */}
-          <div className="absolute inset-0">
+    <div className="flex flex-col justify-center md:h-screen w-full px-4 sm:px-6 overflow-x-hidden">
+      <aside
+        className="
+          relative w-full max-w-[420px] md:max-w-none mx-auto md:mx-0
+          rounded-[20px] md:rounded-[28px] border border-white/10
+          bg-[#0f1316]/80 backdrop-blur-xl
+          p-4 md:p-6
+          shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_40px_80px_-20px_rgba(0,0,0,0.6)]
+          min-h-[520px] md:min-h-[600px]
+        "
+      >
+        {/* Top: logo + availability */}
+        <div className="flex items-center justify-between mb-4 md:mb-6">
+          <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white flex items-center justify-center">
             <Image
-              src="/images/myPhoto.jpeg"
-              alt={avatar.alt ?? `${name} portrait`}
-              fill
-              className="object-cover object-top"
-              priority
+              src="/images/logo.png"
+              alt="Logo"
+              width={40}
+              height={40}
+              className="animate-custom-spin rounded-full"
             />
           </div>
-          
-          {/* Multiple gradient overlays for depth with darker orange theme */}
-          <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-orange-950/90 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-orange-950/95 via-orange-900/60 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/70 to-transparent" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_transparent_40%,_rgba(154,52,18,0.4)_100%)]" />
+              <div className="flex items-center gap-2 px-2 py-1 rounded-full bg-white/5 border border-white/10">
+                <div className="w-2 h-2 rounded-full bg-cyan-400"></div>
+                <span className="text-white/80 text-xs sm:text-sm">Available to work</span>
+              </div>
+                {/* Inline menu icon beside 'Available to work' */}
+                <button className="ml-auto p-1 rounded-full bg-white/10 border border-orange-200/40 text-orange-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 md:hidden -translate-y-1">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-orange-500"><line x1="3" y1="9" x2="17" y2="9"/><line x1="3" y1="5" x2="17" y2="5"/><line x1="3" y1="13" x2="17" y2="13"/></svg>
+                </button>
         </div>
 
-        {/* Large signature name overlay */}
-        <div className="absolute inset-0 flex items-end justify-center z-20">
-          <div className="absolute bottom-[-15px]">
-            <h2 
-              className="text-[100px] text-white opacity-0 leading-none"
-              style={{ 
-                fontFamily: 'var(--font-dancing-script)',
-                fontWeight: 700,
-                transformOrigin: 'center',
-                textShadow: '0 2px 10px rgba(194,65,12,0.3), 0 4px 20px rgba(154,52,18,0.4)',
-                animation: 'nameAppear 1.2s ease-out forwards',
-                letterSpacing: '0.02em'
-              }}
-            >
-              Anita
-            </h2>
+        {/* Photo + signature */}
+  <div className="mt-4 md:mt-6 rounded-[18px] md:rounded-[24px] relative w-full h-[90vw] max-h-[520px] md:h-96">
+          <div className="absolute inset-0 rounded-[inherit] overflow-hidden">
+            {/* soft blur base */}
+            <div className="absolute inset-0 scale-105">
+              <div className="absolute inset-x-0 bottom-0 h-1/2 blur-xl">
+                <Image src={avatar.src} alt="" fill className="object-cover object-top" sizes="(max-width:768px) 90vw, 40vw" />
+              </div>
+            </div>
+            {/* sharp portrait */}
+            <div className="absolute inset-0">
+              <Image
+                src={avatar.src}
+                alt={avatar.alt ?? `${name} portrait`}
+                fill
+                priority
+                className="object-cover object-top"
+                sizes="(max-width:768px) 90vw, 40vw"
+              />
+            </div>
+            {/* overlays */}
+            <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-orange-950/90 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-orange-950/95 via-orange-900/60 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/70 to-transparent" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,_transparent_40%,_rgba(154,52,18,0.4)_100%)]" />
+          </div>
+
+          {/* Signature (kept inside so it won't be clipped) */}
+          <div className="absolute inset-0 flex items-end justify-center z-20 pointer-events-none">
+            <div className="w-full px-6 pb-0 sm:pb-2 absolute left-0 right-0 translate-y-1/4 sm:static sm:translate-y-0 flex justify-center">
+              <h2
+                className="whitespace-nowrap leading-none text-8xl sm:text-9xl md:text-[120px] lg:text-[140px] text-white opacity-90 font-dancing-script drop-shadow-lg -rotate-12 sm:rotate-0"
+                style={{
+                  fontFamily: "var(--font-dancing-script)",
+                  fontWeight: 700,
+                  textShadow:
+                    "0 2px 10px rgba(194,65,12,0.3), 0 4px 20px rgba(154,52,18,0.4)",
+                  letterSpacing: "0.02em",
+                }}
+              >
+                Anita
+              </h2>
+            </div>
           </div>
         </div>
 
-        {/* Text overlay */}
-        <div className="relative z-10 h-full flex flex-col justify-end p-6">
-        </div>
-      </div>
-
-      {/* Contact info */}
-      <div className="pt-12 text-center">
-        <a
-          href={`mailto:${email}`}
-          className="block text-[20px] tracking-wide font-medium text-white/90 hover:text-white transition-colors"
-        >
-          {email}
-        </a>
-        <p className="mt-3 text-lg text-white/70">Based in {location}</p>
-      </div>
-
-      {/* Social icons */}
-      <div className="mt-8 flex items-center justify-center gap-4">
-        <RoundIcon href="https://github.com/Anita-Kumari1987" sr="GitHub">
-          <Github className="size-5 text-white/80" />
-        </RoundIcon>
-        <RoundIcon href="https://www.linkedin.com/in/anita-kumari-91160723/" sr="LinkedIn">
-          <Linkedin className="size-5 text-white/80" />
-        </RoundIcon>
-        <RoundIcon href="https://www.instagram.com/anita60682024/" sr="Instagram">
-          <Instagram className="size-5 text-white/80" />
-        </RoundIcon>
-        <RoundIcon href="https://www.facebook.com/anita.kumari.1614" sr="Facebook">
-          <Facebook className="size-5 text-white/80" />
-        </RoundIcon>
-      </div>
-
-      {/* Get Started CTA */}
-      <div className="mt-8">
-        <div className="relative">
-          <Link
-            href="/lets-chat"
-            className="block w-full text-left text-xl tracking-wide rounded-[24px] px-5 py-4 pr-20 bg-white/5 hover:bg-white/10 border border-white/10 transition-all"
+  {/* Contact */}
+  <div className="mt-15 sm:mt-8 md:pt-12 text-center">
+          <a
+            href={`mailto:${email}`}
+            className="block text-base md:text-[20px] tracking-wide font-medium text-white/90 hover:text-white transition-colors break-all"
           >
-            Get Started
-          </Link>
-          <Link
-            href="/lets-chat"
-            aria-label="Go"
-            className="absolute right-3 top-1/2 -translate-y-1/2 grid place-items-center size-12 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 transition-all"
-          >
-            <ArrowUpRight className="size-7" />
-          </Link>
+            {email}
+          </a>
+          <p className="mt-2 md:mt-3 text-sm md:text-lg text-white/70">
+            Based in {location}
+          </p>
         </div>
-      </div>
+
+        {/* Socials */}
+        <div className="mt-6 md:mt-8 flex items-center justify-center gap-3 md:gap-4">
+          <RoundIcon href={socials?.github ?? "https://github.com/Anita-Kumari1987"} sr="GitHub">
+            <Github className="size-4 md:size-5 text-white/80" />
+          </RoundIcon>
+          <RoundIcon href={socials?.linkedin ?? "https://www.linkedin.com/in/anita-kumari-91160723/"} sr="LinkedIn">
+            <Linkedin className="size-4 md:size-5 text-white/80" />
+          </RoundIcon>
+          <RoundIcon href={socials?.instagram ?? "https://www.instagram.com/anita60682024/"} sr="Instagram">
+            <Instagram className="size-4 md:size-5 text-white/80" />
+          </RoundIcon>
+          <RoundIcon href={socials?.facebook ?? "https://www.facebook.com/anita.kumari.1614"} sr="Facebook">
+            <Facebook className="size-4 md:size-5 text-white/80" />
+          </RoundIcon>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-6 md:mt-8">
+          <div className="relative">
+            <Link
+              href="/lets-chat"
+              className="block w-full text-left text-lg md:text-xl tracking-wide rounded-[18px] md:rounded-[24px] px-4 md:px-5 py-3 md:py-4 pr-16 md:pr-20 bg-white/5 hover:bg-white/10 border border-white/10 transition-all"
+            >
+              Get Started
+            </Link>
+            <Link
+              href="/lets-chat"
+              aria-label="Go"
+              className="absolute right-2.5 md:right-3 top-1/2 -translate-y-1/2 grid place-items-center size-10 md:size-12 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 transition-all"
+            >
+              <ArrowUpRight className="size-5 md:size-7" />
+            </Link>
+          </div>
+        </div>
       </aside>
     </div>
   );
 }
-
-
 
 function RoundIcon({
   href = "#",
@@ -196,7 +166,7 @@ function RoundIcon({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={sr}
-      className="inline-flex items-center justify-center rounded-full bg-white/5 hover:bg-orange-500/20 transition p-2"
+      className="inline-flex items-center justify-center rounded-full bg-white/5 hover:bg-orange-500/20 transition p-1.5 md:p-2"
     >
       {children}
     </a>
