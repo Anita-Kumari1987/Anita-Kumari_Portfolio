@@ -12,29 +12,29 @@ import ContactFormCard from "@/components/ContactFormCard";
 
 export default function Page() {
   return (
-    <main>
+    <main className="flex flex-col gap-16 sm:gap-20 md:gap-24">
       {/* Home Section */}
-      <div id="home" className="scroll-mt-24 mb-24">
+      <div id="home" className="scroll-mt-24 mb-16 max-[550px]:mb-10">
         <HeroHeadline />
       </div>
 
       {/* About Me Section */}
-      <div id="about" className="scroll-mt-24 mb-24">
+      <div id="about" className="scroll-mt-24 mb-16 max-[550px]:mb-10">
         <AboutPage />
       </div>
 
       {/* My Education Section */}
-      <div id="education" className="scroll-mt-24 mb-24">
+      <div id="education" className="scroll-mt-24 mb-16 max-[550px]:mb-10">
         <EducationTimeline />
       </div>
 
       {/* My Experience Section */}
-      <div id="experience" className="scroll-mt-24 mb-24">
+      <div id="experience" className="scroll-mt-24 mb-16 max-[550px]:mb-10">
         <ExperienceGrid />
       </div>
 
       {/* My Techstack Section */}
-      <div id="techstack" className="scroll-mt-24 mb-24">
+      <div id="techstack" className="scroll-mt-24 mb-16 max-[550px]:mb-10">
         <TechStackSection />
       </div>
 
