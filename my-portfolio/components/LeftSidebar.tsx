@@ -21,10 +21,10 @@ export default function SidebarCard({
   socials,
 }: Props) {
   return (
-    <div className="flex flex-col justify-center md:h-screen w-full px-4 sm:px-6 overflow-x-hidden">
+    <div className="w-full flex justify-center md:block md:h-screen px-4 sm:px-6 overflow-x-hidden">
       <aside
         className="
-          relative w-full max-w-[420px] md:max-w-none mx-auto md:mx-0
+          relative max-w-[550px] md:max-w-none mx-auto md:mx-0
           rounded-[20px] md:rounded-[28px] border border-white/10
           bg-[#0f1316]/80 backdrop-blur-xl
           p-4 md:p-6
@@ -33,7 +33,7 @@ export default function SidebarCard({
         "
       >
         {/* Top: logo + availability */}
-        <div className="flex items-center justify-between mb-4 md:mb-6">
+        <div className="flex items-center mb-4 md:mb-6">
           <div className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-white flex items-center justify-center">
             <Image
               src="/images/logo.png"
@@ -43,14 +43,15 @@ export default function SidebarCard({
               className="animate-custom-spin rounded-full"
             />
           </div>
-              <div className="flex items-center gap-2 px-2 py-1 rounded-full bg-white/5 border border-white/10">
-                <div className="w-2 h-2 rounded-full bg-cyan-400"></div>
-                <span className="text-white/80 text-xs sm:text-sm">Available to work</span>
-              </div>
-                {/* Inline menu icon beside 'Available to work' */}
-                <button className="ml-auto p-1 rounded-full bg-white/10 border border-orange-200/40 text-orange-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 md:hidden -translate-y-1">
-                  <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-orange-500"><line x1="3" y1="9" x2="17" y2="9"/><line x1="3" y1="5" x2="17" y2="5"/><line x1="3" y1="13" x2="17" y2="13"/></svg>
-                </button>
+          <div className="flex-1 flex justify-center">
+            <div className="flex items-center gap-2 px-2 py-1 rounded-full bg-white/5 border border-white/10">
+              <div className="w-2 h-2 rounded-full bg-cyan-400"></div>
+              <span className="text-white/80 text-lg sm:text-base font-semibold">Available to work</span>
+            </div>
+          </div>
+          <button className="p-1 rounded-full bg-white/10 border border-orange-200/40 text-orange-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 md:hidden -translate-y-1">
+            <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-orange-500"><line x1="3" y1="9" x2="17" y2="9"/><line x1="3" y1="5" x2="17" y2="5"/><line x1="3" y1="13" x2="17" y2="13"/></svg>
+          </button>
         </div>
 
         {/* Photo + signature */}

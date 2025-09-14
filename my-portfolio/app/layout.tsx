@@ -69,7 +69,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </div>
 
         {/* Left sidebar (fixed) */}
-        <div className="fixed left-0 top-0 h-screen p-4 sm:p-6 w-[var(--sidebar-w)] xl:w-[var(--sidebar-w-xl)] overflow-y-auto z-20">
+  <div className="block md:fixed md:left-0 md:top-16 md:h-[calc(100vh-4rem)] p-4 sm:p-6 w-full md:w-[var(--sidebar-w)] xl:w-[var(--sidebar-w-xl)] overflow-y-auto z-20">
           <SidebarCard
             availabilityCount={3}
             name="Anita"
@@ -88,9 +88,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Main content (margin matches sidebar at each breakpoint) */}
         <main
           id="main-content"
-          className="min-h-screen px-6 md:px-10 py-8 relative z-10 ml-[var(--sidebar-w)] xl:ml-[var(--sidebar-w-xl)]"
+          className="min-h-screen px-6 md:px-10 py-8 relative z-10 md:ml-[380px] xl:ml-[300px] flex flex-col items-center"
         >
-          {children}
+          <div className="w-full max-w-5xl">
+            {children}
+          </div>
         </main>
       </body>
     </html>
