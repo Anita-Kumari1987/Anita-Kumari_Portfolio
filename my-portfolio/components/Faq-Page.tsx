@@ -15,7 +15,7 @@ const faqs: QA[] = [
 
 export default function FAQJaydenDark() {
   return (
-    <section className="relative isolate min-h-screen w-[92%] mx-auto px-4 md:px-2 py-12 md:py-8 rounded-3xlmax-[550px]:pt-2">
+  <section className="relative overflow-hidden flex flex-col items-center justify-center rounded-3xl max-[550px]:rounded-2xl min-h-screen w-[92%] mx-auto px-4 md:px-2 py-12 md:py-8 isolate max-[550px]:pt-2">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,94,0,0.7)_0%,#0a0a0a_50%)] opacity-60 backdrop-blur-md pointer-events-none" />
 
