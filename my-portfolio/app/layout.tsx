@@ -69,16 +69,28 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       {/* Mobile menu icon always at top right on mobile */}
       <MobileMenuButton />
 
-      {/* Left sidebar (fixed) */}
-      <div className="block md:fixed md:left-0 md:top-16 md:h-[calc(100vh-4rem)] p-4 sm:p-6 w-full md:w-[var(--sidebar-w)] xl:w-[var(--sidebar-w-xl)] overflow-y-auto z-20">
-        <SidebarCard
-          availabilityCount={3}
-          name="Anita"
-          email="anita.kumari1987@yahoo.com"
-          location="Stockholm, Sweden"
-          avatar={{ src: "/images/Anita.jpeg", alt: "Anita portrait" }}
-          socials={{ instagram: "#", facebook: "#" }}
-        />
+  {/* Left sidebar (fixed and perfectly vertically centered on desktop) */}
+      <div className="block md:fixed md:left-0 md:top-0 md:h-screen p-4 sm:p-6 w-full md:w-[var(--sidebar-w)] xl:w-[var(--sidebar-w-xl)] z-20">
+        <div className="hidden md:flex h-full items-center justify-center">
+          <SidebarCard
+            availabilityCount={3}
+            name="Anita"
+            email="anita.kumari1987@yahoo.com"
+            location="Stockholm, Sweden"
+            avatar={{ src: "/images/Anita.jpeg", alt: "Anita portrait" }}
+            socials={{ instagram: "#", facebook: "#" }}
+          />
+        </div>
+        <div className="md:hidden">
+          <SidebarCard
+            availabilityCount={3}
+            name="Anita"
+            email="anita.kumari1987@yahoo.com"
+            location="Stockholm, Sweden"
+            avatar={{ src: "/images/Anita.jpeg", alt: "Anita portrait" }}
+            socials={{ instagram: "#", facebook: "#" }}
+          />
+        </div>
       </div>
 
       {/* Right rail */}

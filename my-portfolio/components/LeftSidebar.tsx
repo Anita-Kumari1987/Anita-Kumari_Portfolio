@@ -30,7 +30,7 @@ export default function SidebarCard({
           relative max-w-[550px] md:max-w-none mx-auto md:mx-0
           rounded-[20px] md:rounded-[28px] border border-white/10
           bg-[#0f1316]/80 backdrop-blur-xl
-          p-4 md:p-6
+          p-4 md:p-6 md:mt-18
           shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_40px_80px_-20px_rgba(0,0,0,0.6)]
           min-h-[520px] md:min-h-[600px]
         "
