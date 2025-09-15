@@ -55,7 +55,7 @@ export default function HeaderText({ name = "Anita" }: Props) {
 
           {/* typed pill */}
             <span
-              className="relative flex-none overflow-hidden rounded-md border border-orange-500/20 bg-black/20 w-auto min-w-[15ch] max-w-full px-4 py-2 max-[550px]:text-lg max-[550px]:py-2 max-[550px]:px-4 mt-3 max-[550px]:bg-transparent max-[550px]:border-0"
+              className="relative flex-none overflow-hidden rounded-md bg-black/20 w-auto min-w-[15ch] max-w-full px-4 py-2 max-[550px]:text-lg max-[550px]:py-2 max-[550px]:px-4 mt-3 max-[550px]:bg-transparent border-0 max-[550px]:border max-[550px]:border-orange-500/20"
               style={{ display: 'inline-block' }}
             >
               <span

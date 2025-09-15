@@ -16,7 +16,7 @@ export default function AskMe() {
       {/* content */}
       <div className="mx-auto w-full max-w-5xl ">
         <p className="
-          text-2xl sm:text-3xl md:text-[17px]
+          text-2xl sm:text-3xl md:text-[17px] max-[550px]:text-base
           font-small font-extralight tracking-wide
           text-white/90
         ">

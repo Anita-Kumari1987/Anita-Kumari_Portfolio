@@ -22,7 +22,7 @@ const TESTIMONIALS: Testimonial[] = [
     name: "Ryan Pears",
     role: "Industry Lead / Teacher",
     company: "Hyper Island",
-    avatar: "/images/testimonials/ ryan.png",          // <-- removed space
+    avatar: "/images/testimonials/ ryan.png",
   },
   {
     id: 2,
@@ -40,7 +40,7 @@ const TESTIMONIALS: Testimonial[] = [
     name: "Whitney Muzeyi",
     role: "HR Specialist",
     company: "Foodora AB",
-    avatar: "/images/testimonials/ whitney.png",      // <-- removed space
+    avatar: "/images/testimonials/ whitney.png",
   },
 ];
 
@@ -56,7 +56,6 @@ export default function TestimonialsJayden({
   const [index, setIndex] = React.useState(0);
   const [dir, setDir] = React.useState<1 | -1>(1);
 
-  // autoplay every 2s, stop on user interaction
   const [isAuto, setIsAuto] = React.useState(true);
   React.useEffect(() => {
     if (!isAuto) return;
@@ -71,7 +70,7 @@ export default function TestimonialsJayden({
   const current = TESTIMONIALS[index];
 
   const go = (d: 1 | -1) => {
-    setIsAuto(false);         // stop autoplay after any manual click
+    setIsAuto(false);
     setDir(d);
     setIndex((i) => (i + d + total) % total);
   };
@@ -79,9 +78,9 @@ export default function TestimonialsJayden({
   return (
     <section
       className={cn(
-        "relative isolate min-h-screen w-[92%] mrmx-auto px-2 py-16 md:py-8",
+        // mobile tweaks only; desktop preserved with md:*
+        "relative isolate min-h-screen w-[92%] mx-auto px-4 md:px-2 py-12 md:py-8",
         className
-    
       )}
     >
       {/* left-bottom shaded backdrop */}
@@ -89,16 +88,16 @@ export default function TestimonialsJayden({
 
       {/* Heading */}
       <div className="max-w-7xl mx-auto relative z-10">
-        <h2 className="mt-2 bg-clip-text text-center text-[72px] font-rajdhani tracking-tight text-transparent bg-gradient-to-b from-orange-200 to-orange-500">
+        <h2 className="mt-2 bg-clip-text text-center text-4xl md:text-[72px] leading-tight md:leading-none font-rajdhani tracking-tight text-transparent bg-gradient-to-b from-orange-200 to-orange-500">
           {title}
         </h2>
-        <p className="mt-0 text-[5px] sm:text-[5px] md:text-lg text-center text-white/80">
+        <p className="mt-2 md:mt-0 text-sm md:text-lg text-center text-white/80">
           {description}
         </p>
       </div>
 
       {/* Quote */}
-      <div className="mt-8 md:mt-2 max-w-7xl mx-auto relative z-10">
+      <div className="mt-6 md:mt-2 max-w-7xl mx-auto relative z-10 px-1">
         <AnimatePresence initial={false} custom={dir} mode="wait">
           <motion.blockquote
             key={current.id}
@@ -108,29 +107,29 @@ export default function TestimonialsJayden({
             exit={{ opacity: 0, x: dir === 1 ? -40 : 40 }}
             transition={{ duration: 0.75, ease: "easeInOut" }}
             className={cn(
-              "text-white/90 pl-5 pr-5 text-justify max-w-none",
-              "text-[clamp(1.6rem,4.5vw,3.2rem)]",
-              "leading-[1.35] sm:leading-[1.3] lg:leading-[1.25]"
+              "text-white/90 text-justify",
+              "text-[clamp(1.1rem,4.5vw,3.2rem)]", // a bit smaller on tiny screens
+              "leading-[1.45] sm:leading-[1.35] lg:leading-[1.25]"
             )}
           >
-            <span className="mr-3 text-white/60">“</span>
-            <div className="text-3xl leading-relaxed font-extralight">
+            <span className="mr-2 text-white/60">“</span>
+            <div className="text-xl md:text-3xl leading-relaxed font-extralight">
               {current.quote}
             </div>
-            <span className="ml-3 text-white/60">”</span>
+            <span className="ml-2 text-white/60">”</span>
           </motion.blockquote>
         </AnimatePresence>
       </div>
 
       {/* Controls + card row */}
-      <div className="max-w-7xl mx-auto flex items-end gap-6 relative z-10">
-        {/* LEFT: controls */}
-        <div className="flex-1 shrink-0">
-          <div className="absolute top-0 left-0 z-10 flex items-center gap-6">
+      <div className="max-w-7xl mx-auto relative z-10 mt-6 md:mt-0 flex flex-col-reverse md:flex-row items-center md:items-end gap-6">
+        {/* Controls (stacked & centered on mobile; absolute on desktop) */}
+        <div className="w-full md:flex-1">
+          <div className="relative md:absolute md:top-0 md:left-0 z-10 flex items-center justify-center md:justify-start gap-5">
             <button
               type="button"
               onClick={() => go(-1)}
-              className="h-11 w-11 grid place-items-center rounded-full border border-white/25 text-white/80 hover:text-white hover:bg-white/40 transition"
+              className="h-10 w-10 md:h-11 md:w-11 grid place-items-center rounded-full border border-white/25 text-white/80 hover:text-white hover:bg-white/10 transition"
               aria-label="Previous testimonial"
             >
               <span className="-translate-y-[1px]">❮</span>
@@ -143,7 +142,7 @@ export default function TestimonialsJayden({
             <button
               type="button"
               onClick={() => go(1)}
-              className="h-11 w-11 grid place-items-center rounded-full border border-white/25 text-white/80 hover:text-white hover:bg-white/10 transition"
+              className="h-10 w-10 md:h-11 md:w-11 grid place-items-center rounded-full border border-white/25 text-white/80 hover:text-white hover:bg-white/10 transition"
               aria-label="Next testimonial"
             >
               <span className="-translate-y-[1px]">❯</span>
@@ -151,8 +150,8 @@ export default function TestimonialsJayden({
           </div>
         </div>
 
-        {/* RIGHT: image card */}
-        <div className="shrink-0 z-0">
+        {/* Image card */}
+        <div className="w-full md:w-auto flex justify-center shrink-0 z-0">
           <AnimatePresence initial={false} custom={dir} mode="wait">
             <motion.div
               key={current.id}
@@ -165,15 +164,17 @@ export default function TestimonialsJayden({
             >
               <div
                 className="
-                  relative overflow-hidden rounded-[28px]
+                  relative overflow-hidden rounded-2xl md:rounded-[28px]
                   border border-white/12 bg-white/[0.05] backdrop-blur-xl
                   shadow-[0_25px_60px_-30px_rgba(0,0,0,.6)]
-                  w-[400px] md:w-[350px] h-[420px] mr-2.5 md:h-[320px]
+                  w-[70vw] max-w-[14rem] h-[180px]
+                  md:w-[350px] md:h-[320px] max-[550px]:w-[70vw] max-[550px]:max-w-[14rem] max-[550px]:h-[180px]
+                  mr-0 md:mr-2.5
                 "
               >
                 <span className="pointer-events-none absolute inset-0 rounded-[inherit] [background:radial-gradient(50%_60%_at_20%_10%,rgba(255,255,255,.12),transparent_60%)]" />
 
-                <div className="absolute bottom-0 right-0 w-[100%] h-[100%] overflow-hidden rounded-tl-[18px]">
+                <div className="absolute bottom-0 right-0 w-full h-full overflow-hidden rounded-tl-[18px]">
                   <Image
                     src={current.avatar}
                     alt={current.name}
@@ -184,12 +185,12 @@ export default function TestimonialsJayden({
                   />
                 </div>
 
-                <div className="absolute bottom-5 left-6">
-                  <div className="text-white font-semibold text-lg">
+                <div className="absolute bottom-5 left-5 md:left-6">
+                  <div className="text-white font-semibold text-base md:text-lg">
                     {current.name}
                   </div>
-                  <div className="text-white/75 text-sm">{current.role}</div>
-                  <div className="text-white/60 text-xs uppercase tracking-wide">
+                  <div className="text-white/75 text-xs md:text-sm">{current.role}</div>
+                  <div className="text-white/60 text-[10px] md:text-xs uppercase tracking-wide">
                     {current.company}
                   </div>
                 </div>

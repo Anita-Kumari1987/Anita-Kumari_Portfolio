@@ -53,16 +53,16 @@ const ITEMS: Item[] = [
 
 export default function EducationPage() {
   return (
-    <section className="relative flex flex-col w-[92%] px-6 py-10 rounded-3xl md:py-12">
+    <section className="relative flex flex-col w-[92%] px-4 py-8 rounded-3xl md:px-6 md:py-12">
       {/* orange radial background to match About */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_bottom_left,rgba(255,94,0,0.2)_0%,transparent_55%)]" />
 
       {/* Heading */}
-      <header className="mb-8 text-center">
-        <h1 className="bg-clip-text text-transparent text-[72px] font-rajdhani bg-gradient-to-b from-orange-200 to-orange-500">
+      <header className="mb-6 md:mb-8 text-center">
+        <h1 className="bg-clip-text text-transparent text-4xl leading-tight md:leading-none md:text-[72px] font-rajdhani bg-gradient-to-b from-orange-200 to-orange-500">
           Educational Journey
         </h1>
-        <p className="mx-auto mt-4 max-w-3xl text-slate-200/90 text-lg md:text-xl leading-relaxed">
+        <p className="mx-auto mt-3 max-w-xl md:max-w-3xl text-slate-200/90 text-base md:text-xl leading-relaxed">
           From foundational studies to specialized programs, each step has contributed to building expertise in technology and beyond.
         </p>
       </header>
@@ -93,12 +93,12 @@ function Row({ item }: { item: Item }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.4 }}
-      className="relative py-8 group"
+      className="relative py-6 md:py-8 group"
     >
-      {/* right date pill */}
-      <div className="absolute right-0 top-6">
+      {/* date pill: inline on mobile, absolute on desktop */}
+      <div className="mb-3 md:mb-0 md:absolute md:right-0 md:top-6">
         <span
-          className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium 
+          className="inline-flex items-center rounded-full px-3 py-1.5 text-xs md:text-sm font-medium 
                      bg-white/10 text-white/80 backdrop-blur-md border border-white/15
                      group-hover:bg-gradient-to-r group-hover:from-orange-400 group-hover:to-orange-900
                      group-hover:text-white group-hover:shadow-[0_6px_20px_-6px_rgba(255,94,0,.7)] 
@@ -109,21 +109,19 @@ function Row({ item }: { item: Item }) {
       </div>
 
       {/* org / school */}
-      <div className="text-[15px] text-white/60 mb-1">{item.org}</div>
+      <div className="text-[13px] md:text-[15px] text-white/60 mb-1">{item.org}</div>
 
       {/* program / degree */}
       <h3
-        className="text-xl sm:text-2xl mb-6 font-light leading-snug text-white 
-                   transition-colors duration-300 group-hover:text-orange-300"
+        className="text-lg md:text-2xl mb-5 md:mb-6 font-light leading-snug text-white 
+                   transition-colors duration-300 md:group-hover:text-orange-300 max-[767px]:text-orange-300"
       >
         {item.title}
       </h3>
 
-      {/* underline: always visible; color changes on hover via gradient overlay */}
-      <div className="relative mt-4 h-[1.5px]">
-        {/* base line (always visible) */}
+      {/* underline */}
+      <div className="relative mt-3 md:mt-4 h-[1.5px]">
         <span className="absolute inset-0 rounded-full bg-white/18" />
-        {/* gradient overlay (only color on hover) */}
         <span className="absolute inset-0 rounded-full bg-gradient-to-r group-hover:from-orange-400 group-hover:to-orange-900 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       </div>
     </motion.li>
