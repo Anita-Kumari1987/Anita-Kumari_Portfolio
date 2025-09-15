@@ -81,13 +81,18 @@ const RecentProjects = () => {
                     ))}
                   </div>
 
-                  {/* CTA — keep on one line and prevent squish */}
-                  <div className="flex justify-center items-center shrink-0 whitespace-nowrap">
-                    <p className="flex text-sm md:text-base lg:text-xl text-purple">
-                       Live Site
-                    </p>
+                  {/* CTA — keep on one line and prevent squish, and make clickable */}
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex justify-center items-center shrink-0 whitespace-nowrap hover:underline focus:underline"
+                  >
+                    <span className="flex text-sm md:text-base lg:text-xl text-purple">
+                      Live Site
+                    </span>
                     <FaLocationArrow className="ms-3" color="#CBACF9" />
-                  </div>
+                  </a>
                 </div>
               </PinContainer>
             </div>
