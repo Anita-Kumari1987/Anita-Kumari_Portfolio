@@ -83,9 +83,9 @@ export default function SidebarCard({
 
           {/* Signature (kept inside so it won't be clipped) */}
           <div className="absolute inset-0 flex items-end justify-center z-20 pointer-events-none">
-            <div className="w-full px-6 pb-0 sm:pb-2 absolute left-0 right-0 translate-y-1/4 sm:static sm:translate-y-0 flex justify-center">
+            <div className="w-full px-6 pb-0 sm:pb-2 absolute left-0 right-0 translate-y-1/4 md:translate-y-1/3 sm:static sm:translate-y-0 flex justify-center">
               <h2
-                className="whitespace-nowrap leading-none text-8xl sm:text-9xl md:text-[120px] lg:text-[140px] text-white opacity-90 font-dancing-script drop-shadow-lg -rotate-12 sm:rotate-0"
+                className="whitespace-nowrap leading-none text-8xl sm:text-9xl md:text-[80px] lg:text-[100px] text-white opacity-90 font-dancing-script drop-shadow-lg -rotate-12 md:-rotate-[16deg] sm:rotate-0"
                 style={{
                   fontFamily: "var(--font-dancing-script)",
                   fontWeight: 700,

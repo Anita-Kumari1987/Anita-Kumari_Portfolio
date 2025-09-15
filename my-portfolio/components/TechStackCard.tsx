@@ -1,81 +1,138 @@
 "use client";
 
 import Image from "next/image";
-import { OrbitingCircles } from "@/components/magicui/orbiting-circles";
 import MarqueeDemo from "@/components/marquee-demo";
+import React from "react";
 
-/**
- * Tech stack orbiting icons section
- * - Header at the top
- * - Everything wrapped in a semantic <section>
- */
-export default function TechStackSection() {
+/** Orbit ring with icons positioned on the thin circle */
+function OrbitRing({
+  r,
+  items,
+  speed = 32,
+  reverse = false,
+  iconSize = 40,
+}: {
+  r: string;
+  items: React.ReactNode[];
+  speed?: number;
+  reverse?: boolean;
+  iconSize?: number;
+}) {
+  const count = items.length || 1;
+
   return (
-    <section className="relative isolate overflow-hidden flex flex-col items-center justify-start min-h-screen w-[92%] px-6 rounded-2xl  py-12 md:py-8">
-      {/* Dark base layer */}
-      <div className="pointer-events-none absolute inset-0 -z-30 bg-[#0b0f1a] opacity-50" />
-      
-      {/* shaded glossy background */}
-      <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_bottom_left,rgba(255,94,0,0.4)_0%,transparent_65%)]" />
-      
-      {/* Gradient overlay */}
-      <div className="pointer-events-none absolute inset-0 -z-20 bg-gradient-to-b from-[#0b0f1a]/70 via-transparent to-[#0b0f1a]/70" />
-      
-      {/* Subtle grid */}
+    <div
+      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+      style={{ ["--r" as any]: r } as React.CSSProperties}
+    >
+      {/* Thin “thread” */}
       <div
-        className="pointer-events-none absolute inset-0 -z-10 opacity-30
-        [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),
-                           linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)]
-        [background-size:80px_80px,80px_80px]"
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/25"
+        style={{
+          width: `calc(var(--r) * 2)`,
+          height: `calc(var(--r) * 2)`,
+        }}
       />
-      
+
+      {/* Rotating carrier */}
+      <div
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+        style={{
+          animation: `spin ${speed}s linear infinite`,
+          animationDirection: reverse ? "reverse" as const : "normal",
+        }}
+      >
+        {items.map((node, i) => {
+          const angle = (360 / count) * i;
+          return (
+            <div
+              key={i}
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+              style={
+                {
+                  ["--a" as any]: `${angle}deg`,
+                  transform:
+                    "rotate(var(--a)) translateX(var(--r)) rotate(calc(-1 * var(--a)))",
+                  width: iconSize,
+                  height: iconSize,
+                } as React.CSSProperties
+              }
+            >
+              <div className="relative w-full h-full flex items-center justify-center">
+                {node}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+export default function TechStackSection() {
+  /**
+   * Responsive radii:
+   * - Small screens (375–550px): inner ring ~60px, outer ~120px
+   * - Medium & up: scale up nicely
+   */
+  const OUTER_R = "clamp(7.5rem, 28vw, 13rem)"; // ~120 → 208 px
+  const INNER_R = "clamp(3.75rem, 13vw, 6rem)"; // ~60  → 96  px
+
+  const outerItems = [
+    <Image key="react" src="/images/TechIcons/react.svg" alt="React" width={36} height={36} />,
+    <Image key="next" src="/images/TechIcons/next-js.svg" alt="Next.js" width={36} height={36} />,
+    <Image key="tailwind" src="/images/TechIcons/tailwind.svg" alt="Tailwind" width={48} height={48} />,
+    <Icons.gitHub key="gh" />,
+    <Image key="ts" src="/images/TechIcons/typescript.svg" alt="TypeScript" width={36} height={36} />,
+    <Image key="figma" src="/images/TechIcons/figma.svg" alt="Figma" width={44} height={44} />,
+    <Image key="node" src="/images/TechIcons/nodejs.svg" alt="Node.js" width={56} height={56} />,
+    <Image key="vscode" src="/images/TechIcons/vscode.svg" alt="VS Code" width={36} height={36} />,
+    <Image key="mongo" src="/images/TechIcons/mongodb.svg" alt="MongoDB" width={36} height={36} />,
+    <Image key="magicui" src="/images/TechIcons/magicui.jpeg" alt="Magic UI" width={36} height={36} className="rounded-full" />,
+    <Image key="shadcn" src="/images/TechIcons/shadcn.png" alt="shadcn/ui" width={32} height={32} className="rounded-full" />,
+  ];
+
+  const innerItems = [
+    <Icons.openai key="openai" />,
+    <Icons.notion key="notion" />,
+    <Icons.googleDrive key="gdrive" />,
+    <Image key="js" src="/images/TechIcons/javascript.svg" alt="JavaScript" width={30} height={30} />,
+    <Image key="html" src="/images/TechIcons/html.svg" alt="HTML" width={40} height={40} />,
+    <Image key="css" src="/images/TechIcons/css.svg" alt="CSS" width={40} height={40} />,
+  ];
+
+  return (
+    <section className="relative isolate overflow-hidden flex flex-col items-center justify-start min-h-screen w-[92%] px-4 sm:px-6 rounded-2xl py-10 md:py-12">
+      {/* Background */}
+      <div className="pointer-events-none absolute inset-0 -z-30 bg-[#0b0f1a] opacity-50" />
+      <div className="pointer-events-none absolute inset-0 -z-20 bg-[radial-gradient(circle_at_bottom_left,rgba(255,94,0,0.4)_0%,transparent_65%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-20 bg-gradient-to-b from-[#0b0f1a]/70 via-transparent to-[#0b0f1a]/70" />
+
       {/* Header */}
-      <header className="mb-10 text-center">
-        <h1 className="mt-2 bg-clip-text text-center text-[72px] font-rajdhani tracking-tight text-transparent bg-gradient-to-b from-orange-200 to-orange-500">
+      <header className="mb-6 sm:mb-8 text-center">
+  <h1 className="bg-clip-text text-3xl sm:text-5xl md:text-6xl lg:text-7xl max-[550px]:text-xl font-rajdhani tracking-tight text-transparent bg-gradient-to-b from-orange-200 to-orange-500">
           Tech Stack
         </h1>
-        <p className="mt-2 text-lg sm:text-xl text-white/80">
+        <p className="mt-2 text-sm sm:text-lg md:text-xl text-white/80">
           I constantly try to improve….!!
         </p>
       </header>
 
-      {/* Orbiting icons */}
-      <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden">
-        {/* Outer ring */}
-        <OrbitingCircles iconSize={40} radius={200} className="border-white
-      ">
-          <Image src="/images/TechIcons/react.svg" alt="React-icon" width={40} height={40} />
-          <Image src="/images/TechIcons/next-js.svg" alt="next-Js-icon" width={40} height={40} />
-          <Image src="/images/TechIcons/tailwind.svg" alt="JavaScript-icon" width={60} height={60} />
-          <Icons.gitHub />
-          <Image src="/images/TechIcons/typescript.svg" alt="HTML-icon" width={40} height={40} />
-          <Image src="/images/TechIcons/figma.svg" alt="CSS-icon" width={50} height={50} />
-          <Image src="/images/TechIcons/nodejs.svg" alt="nodejs-icon" width={80} height={80} />
-          <Image src="/images/TechIcons/vscode.svg" alt="vscode-icon" width={40} height={40} />
-          <Image src="/images/TechIcons/mongodb.svg" alt="mongodb-icon" width={40} height={40} />
-          <Image src="/images/TechIcons/magicui.jpeg" alt="magic-ui-icon" width={40} height={40}  className="rounded-full"/>
-          <Image src="/images/TechIcons/shadcn.png" alt="shadcn-icon" width={35} height={35} className="rounded-full" />
-        </OrbitingCircles>
-
-        {/* Inner ring */}
-        <OrbitingCircles iconSize={40} radius={80} reverse speed={2}>
-          <Icons.notion />
-          <Icons.openai />
-          <Icons.googleDrive />
-          <Image
-            src="/images/TechIcons/javascript.svg"
-            alt="JavaScript"
-            width={35}
-            height={35}
-          />
-          <Image src="/images/TechIcons/html.svg" alt="HTML" width={50} height={50} />
-          <Image src="/images/TechIcons/css.svg" alt="CSS" width={50} height={50} />
-        </OrbitingCircles>
+      {/* Orbits */}
+      <div className="relative flex w-full max-w-[980px] items-center justify-center overflow-visible h-[360px] sm:h-[480px] md:h-[560px]">
+        <OrbitRing r={OUTER_R} items={outerItems} speed={36} iconSize={36} />
+        <OrbitRing r={INNER_R} items={innerItems} speed={22} reverse iconSize={30} />
       </div>
-      <MarqueeDemo/>
+
+      <MarqueeDemo />
     </section>
   );
 }
+
+
+/* Your Icons object stays the same */
+
 
 const Icons = {
   gitHub: () => (

@@ -41,7 +41,7 @@ export default function RightMenuDrawer({ open, onClose }: { open: boolean; onCl
             <span className="inline-block w-2 h-2 rounded-full bg-gradient-to-br from-orange-400 to-orange-900 mr-2" />
             Menu
           </span>
-          <button onClick={onClose} aria-label="Close menu" className="hover:scale-110 transition-transform">
+          <button onClick={onClose} aria-label="Close menu" className="hover:scale-110 transition-transform cursor-pointer">
             <X size={32} className="text-gray-400 hover:text-orange-400 transition" />
           </button>
         </div>
@@ -50,7 +50,7 @@ export default function RightMenuDrawer({ open, onClose }: { open: boolean; onCl
             <Link
               key={label}
               href={href}
-              className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-300 hover:text-orange-400 hover:bg-orange-900/10 text-[15px] font-light transition-all group"
+              className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-300 hover:text-orange-400 hover:bg-orange-900/10 text-[15px] font-light transition-all group cursor-pointer"
             >
               <Icon size={20} className="stroke-[1.3] group-hover:text-orange-400 transition" />
               <span>{label}</span>

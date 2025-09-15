@@ -62,7 +62,7 @@ export default function HeaderText({ name = "Anita" }: Props) {
           >
             <span
               ref={typedEl}
-              className="bg-gradient-to-r from-orange-800 via-orange-500 to-orange-100 text-transparent bg-clip-text whitespace-nowrap text-lg md:text-xl"
+              className="bg-gradient-to-r from-orange-800 via-orange-500 to-orange-100 text-transparent bg-clip-text whitespace-nowrap text-xl md:text-3xl"
             />
           </span>
         </span>
