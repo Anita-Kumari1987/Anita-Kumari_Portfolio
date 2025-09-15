@@ -79,7 +79,7 @@ export default function TestimonialsJayden({
     <section
       className={cn(
         // mobile tweaks only; desktop preserved with md:*
-        "relative isolate min-h-screen w-[92%] mx-auto px-4 md:px-2 py-12 md:py-8",
+  "relative isolate min-h-screen w-[92%] mx-auto px-4 md:px-12 py-12 md:py-8",
         className
       )}
     >
@@ -97,7 +97,7 @@ export default function TestimonialsJayden({
       </div>
 
       {/* Quote */}
-      <div className="mt-6 md:mt-2 max-w-7xl mx-auto relative z-10 px-1">
+  <div className="mt-6 md:mt-2 max-w-7xl mx-auto relative z-10 px-1 md:px-6">
         <AnimatePresence initial={false} custom={dir} mode="wait">
           <motion.blockquote
             key={current.id}
@@ -168,7 +168,7 @@ export default function TestimonialsJayden({
                   border border-white/12 bg-white/[0.05] backdrop-blur-xl
                   shadow-[0_25px_60px_-30px_rgba(0,0,0,.6)]
                   w-[70vw] max-w-[14rem] h-[180px]
-                  md:w-[350px] md:h-[320px] max-[550px]:w-[70vw] max-[550px]:max-w-[14rem] max-[550px]:h-[180px]
+                  md:w-[3500px] md:h-[320px] max-[550px]:w-[70vw] max-[550px]:max-w-[14rem] max-[550px]:h-[180px]
                   mr-0 md:mr-2.5
                 "
               >

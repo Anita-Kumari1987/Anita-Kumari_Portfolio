@@ -25,18 +25,19 @@ export default function HeaderText({ name = "Anita" }: Props) {
   }, []);
 
   return (
-  <div className="mt-16 max-[550px]:mt-4 relative max-[550px]:min-h-[320px]">
+    <div className="mt-16 max-[550px]:mt-4 relative max-[550px]:min-h-[320px]">
       <h2
         className="
           text-left mb-2 font-rajdhani tracking-[0.01em] leading-relaxed
-          text-2xl sm:text-3xl md:text-4xl
+          text-2xl sm:text-3xl md:text-4xl lg:text-[34px]
           max-[550px]:text-xl max-[550px]:leading-8
           [text-shadow:0_6px_24px_rgba(0,0,0,.35)]
         "
       >
+        {/* Flex row on desktop, stacked on mobile */}
         <span
           className="
-            inline-flex items-center gap-2 whitespace-nowrap
+            inline-flex flex-wrap items-center gap-3
             max-[550px]:whitespace-normal max-[550px]:flex-col max-[550px]:items-start max-[550px]:gap-1
           "
         >
@@ -44,30 +45,45 @@ export default function HeaderText({ name = "Anita" }: Props) {
             Hi! I'm{" "}
             <span className="font-semibold bg-gradient-to-r from-orange-800 via-orange-500 to-orange-100 text-transparent bg-clip-text max-[550px]:text-3xl">
               {name}
-            </span>
+            </span>{" "}
             <span className="bg-gradient-to-r from-gray-200 via-gray-300 to-gray-100 text-transparent bg-clip-text max-[550px]:text-3xl">
-              {" "}
-              and
-               <br />
-               I am a passionate
+              and I am a passionate
             </span>
           </span>
 
-          {/* typed pill */}
+          {/* typed pill stays inline on desktop */}
+          <span
+            className="
+              relative flex-none overflow-hidden rounded-md bg-black/20
+              px-4 py-2 w-auto min-w-[15ch]
+              max-[550px]:text-lg max-[550px]:py-2 max-[550px]:px-4 mt-3
+              max-[550px]:bg-transparent border-0 max-[550px]:border max-[550px]:border-orange-500/20
+            "
+          >
             <span
-              className="relative flex-none overflow-hidden rounded-md bg-black/20 w-auto min-w-[15ch] max-w-full px-4 py-2 max-[550px]:text-lg max-[550px]:py-2 max-[550px]:px-4 mt-3 max-[550px]:bg-transparent border-0 max-[550px]:border max-[550px]:border-orange-500/20"
-              style={{ display: 'inline-block' }}
-            >
-              <span
-                ref={typedEl}
-                className="bg-gradient-to-r from-orange-800 via-orange-500 to-orange-100 text-transparent bg-clip-text whitespace-nowrap text-lg max-[550px]:text-2xl"
-              />
-            </span>
+              ref={typedEl}
+              className="bg-gradient-to-r from-orange-800 via-orange-500 to-orange-100 text-transparent bg-clip-text whitespace-nowrap text-lg md:text-xl"
+            />
+          </span>
         </span>
       </h2>
 
-  <div className="mt-10 max-[550px]:mt-6 max-[550px]:absolute max-[550px]:left-0 max-[550px]:right-0 max-[550px]:bottom-0 max-[550px]:mb-2 max-[550px]:flex max-[550px]:justify-center max-[550px]:items-center max-[550px]:z-10">
-  <Link href="/images/Anita-Kumari_Resume.pdf" download className="max-[550px]:w-full max-[550px]:mt-1 max-[550px]:flex max-[550px]:justify-center">
+      {/* CTA */}
+      <div
+        className="
+          mt-8
+          /* Mobile absolute bottom-center */
+          max-[550px]:mt-6 max-[550px]:absolute max-[550px]:left-0 max-[550px]:right-0 max-[550px]:bottom-0
+          max-[550px]:mb-2 max-[550px]:flex max-[550px]:justify-center max-[550px]:items-center max-[550px]:z-10
+          /* Desktop keep inline left under typed line */
+          md:flex md:justify-start
+        "
+      >
+        <Link
+          href="/images/Anita-Kumari_Resume.pdf"
+          download
+          className="max-[550px]:w-full max-[550px]:mt-1 max-[550px]:flex max-[550px]:justify-center"
+        >
           <Button
             borderRadius="1.75rem"
             className="
@@ -77,13 +93,13 @@ export default function HeaderText({ name = "Anita" }: Props) {
               border-gray-600/30 hover:border-gray-500/50
               transition-all duration-300 ease-out shadow-lg shadow-black/20
               flex items-center justify-center
+              /* Desktop left aligned */
+              md:ml-0
+              /* Mobile full-width */
               max-[550px]:w-full max-[550px]:text-sm max-[550px]:py-2 max-[550px]:mx-auto
             "
-            style={{ marginLeft: 'auto', marginRight: 'auto' }}
           >
-            <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              Download CV
-            </span>
+            Download CV
           </Button>
         </Link>
       </div>

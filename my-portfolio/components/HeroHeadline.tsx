@@ -9,8 +9,9 @@ export default function HeroHeadline({ name = "Anita" }: HeaderTextProps) {
     <section
       className="
         relative isolate overflow-hidden flex flex-col rounded-3xl items-center justify-start
-        min-h-screen w-[92%] px-6 py-12 md:py-24
+        min-h-screen w-full px-6 py-12 md:py-24
         max-[550px]:px-4 max-[550px]:py-8
+      
       "
     >
       <LocalTime />
@@ -31,7 +32,7 @@ export default function HeroHeadline({ name = "Anita" }: HeaderTextProps) {
 
       <div
         className="
-          relative mx-auto max-w-9xl px-10 py-24 sm:py-32 md:py-40
+          relative mx-auto max-w-[1200px] px-10 py-24 sm:py-32 md:py-40
           max-[550px]:px-3 max-[550px]:py-10
         "
       >
@@ -49,11 +50,10 @@ export default function HeroHeadline({ name = "Anita" }: HeaderTextProps) {
         {/* line 1 */}
         <h1
           className="
-            mt-6 text-left font-rajdhani tracking-[0.02em] leading-[1.2] text-cyan-100
-            text-[72px]
+            mt-6 text-left font-rajdhani tracking-[0.02em] leading-[1.1] text-cyan-100
+            text-[56px] md:text-6xl lg:text-7xl
             max-[550px]:text-4xl max-[550px]:mt-12 max-[550px]:font-extrabold
           "
-
           style={{ fontFamily: "var(--font-rajdhani)" }}
         >
           <TextAnimate animation="slideUp" by="word">
@@ -64,8 +64,8 @@ export default function HeroHeadline({ name = "Anita" }: HeaderTextProps) {
         {/* line 2 */}
         <h1
           className="
-            text-left text-cyan-100 font-extralight tracking-[0.02em] leading-[1.2]
-            text-6xl sm:text-6xl md:text-7xl
+            text-left text-cyan-100 font-extralight tracking-[0.02em] leading-[1.1]
+            text-[56px] md:text-6xl lg:text-7xl
             max-[550px]:text-4xl max-[550px]:font-extrabold [text-shadow:0_6px_18px_rgba(0,0,0,.35)] max-[550px]:mb-12
           "
           style={{ fontFamily: "var(--font-rajdhani)" }}
