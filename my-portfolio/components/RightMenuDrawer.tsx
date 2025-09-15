@@ -33,7 +33,7 @@ export default function RightMenuDrawer({ open, onClose }: { open: boolean; onCl
       />
       {/* Drawer */}
       <aside
-        className={`absolute right-0 top-0 h-full w-[270px] max-w-full bg-gradient-to-b from-[#191919] via-[#18171c] to-[#191919] shadow-2xl transition-transform duration-300 flex flex-col px-5 py-8 border-l border-orange-900/30 ${open ? "translate-x-0" : "translate-x-full"}`}
+        className={`absolute right-0 top-0 h-full w-[200px] md:w-[270px] max-w-full bg-gradient-to-b from-[#191919] via-[#18171c] to-[#191919] shadow-2xl transition-transform duration-300 flex flex-col px-5 py-8 border-l border-orange-900/30 ${open ? "translate-x-0" : "translate-x-full"}`}
         style={{backdropFilter: 'blur(8px)'}}
       >
         <div className="flex items-center justify-between mb-8">
@@ -41,7 +41,7 @@ export default function RightMenuDrawer({ open, onClose }: { open: boolean; onCl
             <span className="inline-block w-2 h-2 rounded-full bg-gradient-to-br from-orange-400 to-orange-900 mr-2" />
             Menu
           </span>
-          <button onClick={onClose} aria-label="Close menu" className="hover:scale-110 transition-transform cursor-pointer">
+          <button onClick={onClose} aria-label="Close menu" className="hover:scale-110 transition-transform">
             <X size={32} className="text-gray-400 hover:text-orange-400 transition" />
           </button>
         </div>
@@ -50,7 +50,7 @@ export default function RightMenuDrawer({ open, onClose }: { open: boolean; onCl
             <Link
               key={label}
               href={href}
-              className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-300 hover:text-orange-400 hover:bg-orange-900/10 text-[15px] font-light transition-all group cursor-pointer"
+              className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-300 hover:text-orange-400 hover:bg-orange-900/10 text-[15px] font-light transition-all group"
             >
               <Icon size={20} className="stroke-[1.3] group-hover:text-orange-400 transition" />
               <span>{label}</span>

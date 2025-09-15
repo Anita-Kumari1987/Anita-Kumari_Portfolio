@@ -3,6 +3,7 @@ import "./globals.css";
 import SidebarCard from "../components/LeftSidebar";
 import RightSidebar from "../components/RightSidebar";
 import TopRightGridButton from "../components/TopRightGridButton";
+import MobileMenuButton from "../components/MobileMenuButton";
 import { Outfit, Dancing_Script, Rajdhani } from "next/font/google";
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
@@ -65,6 +66,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <div className="hidden md:block">
         <TopRightGridButton />
       </div>
+      {/* Mobile menu icon always at top right on mobile */}
+      <MobileMenuButton />
 
       {/* Left sidebar (fixed) */}
       <div className="block md:fixed md:left-0 md:top-16 md:h-[calc(100vh-4rem)] p-4 sm:p-6 w-full md:w-[var(--sidebar-w)] xl:w-[var(--sidebar-w-xl)] overflow-y-auto z-20">

@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { Facebook, Instagram, ArrowUpRight, Github, Linkedin } from "lucide-react";
+import RightMenuDrawer from "./RightMenuDrawer";
 
 type Props = {
   availabilityCount?: number;
@@ -20,6 +22,7 @@ export default function SidebarCard({
   avatar,
   socials,
 }: Props) {
+  const [drawerOpen, setDrawerOpen] = useState(false);
   return (
     <div className="w-full flex justify-center md:block md:h-screen px-4 sm:px-6 overflow-x-hidden">
       <aside
@@ -49,9 +52,8 @@ export default function SidebarCard({
               <span className="text-white/80 text-lg sm:text-base font-semibold">Available to work</span>
             </div>
           </div>
-          <button className="p-1 rounded-full bg-white/10 border border-orange-200/40 text-orange-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 md:hidden -translate-y-1">
-            <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-orange-500"><line x1="3" y1="9" x2="17" y2="9"/><line x1="3" y1="5" x2="17" y2="5"/><line x1="3" y1="13" x2="17" y2="13"/></svg>
-          </button>
+          {/* Orange circle indicator: always show on desktop, removed from mobile */}
+          <span className="absolute top-1/2 right-[-10px] -translate-y-1/2 w-3 h-3 rounded-full bg-orange-500 hidden md:block" />
         </div>
 
         {/* Photo + signature */}
@@ -173,3 +175,4 @@ function RoundIcon({
     </a>
   );
 }
+
