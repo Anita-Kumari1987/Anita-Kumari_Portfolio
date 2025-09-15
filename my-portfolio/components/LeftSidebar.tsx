@@ -106,7 +106,7 @@ export default function SidebarCard({
   <div className="mt-15 sm:mt-8 md:pt-12 text-center">
           <a
             href={`mailto:${email}`}
-            className="block text-base md:text-[20px] tracking-wide font-medium text-white/90 hover:text-white transition-colors break-all"
+            className="block text-base md:text-[18px] tracking-wide font-medium text-white/90 hover:text-white transition-colors break-all"
           >
             {email}
           </a>
