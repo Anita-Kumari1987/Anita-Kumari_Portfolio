@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Menu, X, Home, User, GraduationCap, Briefcase, Layers, Route, Quote, HelpCircle, MessageSquare, Mail, Facebook, Instagram, Linkedin, Github } from "lucide-react";
+import { Menu, X, Home, User, GraduationCap, Briefcase, Layers, Route, Quote, HelpCircle, MessageSquare, Mail, FolderKanban, Facebook, Instagram, Linkedin, Github } from "lucide-react";
 import Link from "next/link";
 
 const menuItems = [
@@ -9,6 +9,7 @@ const menuItems = [
   { label: "My education", icon: GraduationCap, href: "/about/education" },
   { label: "My experience", icon: Briefcase, href: "/about/experience" },
   { label: "My techstack", icon: Layers, href: "/about/tech-stack" },
+  { label: "My Projects", icon: FolderKanban, href: "/myProjects" },
   { label: "My approach", icon: Route, href: "/approach" },
   { label: "Testimonials", icon: Quote, href: "/testimonial" },
   { label: "Faq's", icon: HelpCircle, href: "/faq" },
