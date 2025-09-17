@@ -14,7 +14,7 @@ export default function Page() {
   return (
     <main className="flex flex-col gap-16 sm:gap-20 md:gap-24">
       {/* Home Section */}
-      <div id="home" className="scroll-mt-24 mb-16 max-[550px]:mb-10">
+      <div id="home" className="scroll-mt-24 mb-16 max-[550px]:mb-10 max-[550px]:border-2 max-[550px]:border-orange-400 max-[550px]:rounded-xl max-[550px]:mx-1">
         <HeroHeadline />
       </div>
 
