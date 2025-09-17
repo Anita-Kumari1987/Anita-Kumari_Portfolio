@@ -101,7 +101,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       {/* Main content (margin matches sidebar at each breakpoint) */}
       <main
         id="main-content"
-  className="min-h-screen px-4 md:px-8 py-8 relative z-10 md:ml-[280px] xl:ml-[340px] flex flex-col items-center"
+  className="min-h-screen px-4 md:px-8 py-8 relative z-10 ml-6 md:ml-[280px] xl:ml-[340px] flex flex-col items-center"
       >
         <div className="w-full max-w-5xl">
           {children}
