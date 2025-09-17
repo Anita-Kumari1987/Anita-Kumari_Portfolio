@@ -52,8 +52,6 @@ export default function SidebarCard({
               <span className="text-white/80 text-lg sm:text-base font-semibold">Available to work</span>
             </div>
           </div>
-          {/* Orange circle indicator: always show on desktop, removed from mobile */}
-          <span className="absolute top-1/2 right-[-10px] -translate-y-1/2 w-3 h-3 rounded-full bg-orange-500 hidden md:block" />
         </div>
 
         {/* Photo + signature */}

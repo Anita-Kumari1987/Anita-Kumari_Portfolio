@@ -87,18 +87,22 @@ export default function HeaderText({ name = "Anita" }: Props) {
           <Button
             borderRadius="1.75rem"
             className="
-              relative w-[200px] px-8 py-2.5 text-base font-rajdhani
+              relative min-w-[180px] px-8 py-2.5 text-base font-rajdhani whitespace-nowrap
               bg-gradient-to-r from-black via-gray-800 to-cyan-900
               hover:from-black hover:via-gray-700 hover:to-gray-500
               border-gray-600/30 hover:border-gray-500/50
               transition-all duration-300 ease-out shadow-lg shadow-black/20
-              flex items-center justify-center
+              flex items-center justify-center gap-2
               /* Desktop left aligned */
               md:ml-0
               /* Mobile full-width */
               max-[550px]:w-full max-[550px]:text-sm max-[550px]:py-2 max-[550px]:mx-auto
             "
           >
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24">
+              <path d="M16 16v1a3 3 0 0 1-3 3H7a5 5 0 1 1 0-10c.29 0 .57.02.85.07A6 6 0 0 1 20 11.5c0 .34-.03.67-.08 1" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 12v6m0 0-2-2m2 2 2-2" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
             Download CV
           </Button>
         </Link>
