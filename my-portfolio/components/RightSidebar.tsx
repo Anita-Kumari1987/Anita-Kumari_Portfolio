@@ -32,7 +32,7 @@ export default function RightSidebar() {
         {ITEMS.map(({ label, href, Icon }) => (
           <a
             key={label}
-            href={href}
+            href={`/${href}`}
             className="group relative grid h-10 w-10 place-items-center rounded-full text-slate-300/80 transition-all duration-100 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40 scroll-smooth"
           >
             {/* Custom Tooltip - left side */}

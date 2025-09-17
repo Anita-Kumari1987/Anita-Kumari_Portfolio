@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Menu, X, Home, User, GraduationCap, Briefcase, Layers, Route, Quote, HelpCircle, MessageSquare, Mail, FolderKanban, Facebook, Instagram, Linkedin, Github } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const menuItems = [
   { label: "Home", icon: Home, href: "/" },
@@ -24,7 +25,20 @@ const socials = [
   { icon: <Github size={24} />, href: "https://github.com/Anita-Kumari1987" },
 ];
 
-export default function RightMenuDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
+export default function RightMenuDrawer({ open, onClose, closeDrawer }: { open: boolean; onClose: () => void; closeDrawer?: () => void }) {
+  const pathname = usePathname();
+  // Define homepage section anchors inside the component
+  const homepageSections = [
+    { label: "Home", icon: Home, href: "#home" },
+    { label: "About me", icon: User, href: "#about" },
+    { label: "My education", icon: GraduationCap, href: "#education" },
+    { label: "My experience", icon: Briefcase, href: "#experience" },
+    { label: "My techstack", icon: Layers, href: "#techstack" },
+    { label: "My Projects", icon: FolderKanban, href: "#projects" },
+    { label: "Testimonials", icon: Quote, href: "#testimonials" },
+    { label: "Faq's", icon: HelpCircle, href: "#faq" },
+    { label: "Contact me", icon: Mail, href: "#contact" },
+  ];
   return (
     <div className={`fixed inset-0 z-[100] transition-all duration-300 ${open ? "pointer-events-auto" : "pointer-events-none"}`}>
       {/* Overlay */}
@@ -47,16 +61,52 @@ export default function RightMenuDrawer({ open, onClose }: { open: boolean; onCl
           </button>
         </div>
         <nav className="flex-1 flex flex-col gap-2">
-          {menuItems.map(({ label, icon: Icon, href }) => (
-            <Link
-              key={label}
-              href={href}
-              className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-300 hover:text-orange-400 hover:bg-orange-900/10 text-[15px] font-light transition-all group"
-            >
-              <Icon size={20} className="stroke-[1.3] group-hover:text-orange-400 transition" />
-              <span>{label}</span>
-            </Link>
-          ))}
+          {menuItems.map(({ label, icon: Icon, href }) => {
+            // Check if this is a homepage section
+            const homepageSection = homepageSections.find((s) => s.label === label);
+            if (homepageSection) {
+              // If on homepage, use anchor tag for smooth scroll
+              if (pathname === "/") {
+                return (
+                  <a
+                    key={label}
+                    href={homepageSection.href}
+                    onClick={() => { onClose(); closeDrawer && closeDrawer(); }}
+                    className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-300 hover:text-orange-400 hover:bg-orange-900/10 text-[15px] font-light transition-all group cursor-pointer"
+                  >
+                    <Icon size={20} className="stroke-[1.3] group-hover:text-orange-400 transition" />
+                    <span>{label}</span>
+                  </a>
+                );
+              } else {
+                // If not on homepage, use Link to homepage with hash
+                return (
+                  <Link
+                    key={label}
+                    href={`/${homepageSection.href}`}
+                    onClick={() => { onClose(); closeDrawer && closeDrawer(); }}
+                    className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-300 hover:text-orange-400 hover:bg-orange-900/10 text-[15px] font-light transition-all group"
+                  >
+                    <Icon size={20} className="stroke-[1.3] group-hover:text-orange-400 transition" />
+                    <span>{label}</span>
+                  </Link>
+                );
+              }
+            } else {
+              // For other pages, use Link as before
+              return (
+                <Link
+                  key={label}
+                  href={href}
+                  onClick={() => { onClose(); closeDrawer && closeDrawer(); }}
+                  className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-300 hover:text-orange-400 hover:bg-orange-900/10 text-[15px] font-light transition-all group"
+                >
+                  <Icon size={20} className="stroke-[1.3] group-hover:text-orange-400 transition" />
+                  <span>{label}</span>
+                </Link>
+              );
+            }
+          })}
         </nav>
         <div className="mt-6">
           <span className="text-white/90 text-base font-light flex items-center gap-2 mb-2">
