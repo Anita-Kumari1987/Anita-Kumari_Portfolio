@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Facebook, Instagram, ArrowUpRight, Github, Linkedin } from "lucide-react";
 import RightMenuDrawer from "./RightMenuDrawer";
@@ -23,6 +24,7 @@ export default function SidebarCard({
   socials,
 }: Props) {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const router = useRouter();
   return (
   <div className="w-full flex justify-center md:block md:h-screen px-4 sm:px-6 overflow-x-hidden max-[550px]:w-[90vw]">
       <aside
@@ -122,10 +124,10 @@ export default function SidebarCard({
           <RoundIcon href={socials?.linkedin ?? "https://www.linkedin.com/in/anita-kumari-91160723/"} sr="LinkedIn">
             <Linkedin className="size-4 md:size-5 text-white/80" />
           </RoundIcon>
-          <RoundIcon href={socials?.instagram ?? "https://www.instagram.com/anita60682024/"} sr="Instagram">
+          <RoundIcon href="https://www.instagram.com/anita60682024/" sr="Instagram">
             <Instagram className="size-4 md:size-5 text-white/80" />
           </RoundIcon>
-          <RoundIcon href={socials?.facebook ?? "https://www.facebook.com/anita.kumari.1614"} sr="Facebook">
+          <RoundIcon href="https://www.facebook.com/anita.kumari.1614" sr="Facebook">
             <Facebook className="size-4 md:size-5 text-white/80" />
           </RoundIcon>
         </div>
@@ -135,17 +137,18 @@ export default function SidebarCard({
           <div className="relative">
             <Link
               href="/lets-chat"
-              className="block w-full text-left text-lg md:text-xl tracking-wide rounded-[18px] md:rounded-[24px] px-4 md:px-5 py-3 md:py-4 pr-16 md:pr-20 bg-white/5 hover:bg-white/10 border border-white/10 transition-all"
+              className="block w-full text-left text-2xl md:text-xl font-semibold tracking-wide rounded-[18px] md:rounded-[24px] px-4 md:px-6 py-3 md:py-4 pr-16 md:pr-20 bg-white/5 hover:bg-white/10 border border-white/10 transition-all"
             >
-              Get Started
+              Connect with Me
             </Link>
-            <Link
-              href="/lets-chat"
+            <button
+              type="button"
               aria-label="Go"
-              className="absolute right-2.5 md:right-3 top-1/2 -translate-y-1/2 grid place-items-center size-10 md:size-12 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 transition-all"
+              onClick={() => router.push('/contact')}
+              className="absolute right-2.5 md:right-5 top-1/2 -translate-y-1/2 grid place-items-center size-10 md:size-11 rounded-full border border-white/15 bg-white/5 hover:bg-white/10 transition-all cursor-pointer"
             >
               <ArrowUpRight className="size-5 md:size-7" />
-            </Link>
+            </button>
           </div>
         </div>
       </aside>
