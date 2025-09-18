@@ -32,7 +32,8 @@
     "app/**/*.ts",
     "app/**/*.tsx",
     "components/**/*.ts",
-    "components/**/*.tsx"
+    "components/**/*.tsx",
+    "react-three-fiber-jsx.d.ts"
   ],
   "exclude": ["node_modules"]
 }
