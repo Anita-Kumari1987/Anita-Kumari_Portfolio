@@ -32,8 +32,8 @@ export default function HeroHeadline({ name = "Anita" }: HeaderTextProps) {
 
       <div
         className="
-          relative mx-auto max-w-[1200px] px-10 py-24 sm:py-32 md:py-40
-          max-[550px]:px-3 max-[550px]:py-10
+          relative mx-auto max-w-[1200px] px-10 pt-12 pb-24 sm:pt-16 sm:pb-28 md:pt-20 md:pb-32
+          max-[550px]:px-3 max-[550px]:pt-6 max-[550px]:pb-10
         "
       >
         {/* badge */}
@@ -44,7 +44,7 @@ export default function HeroHeadline({ name = "Anita" }: HeaderTextProps) {
             max-[550px]:text-[10px] max-[550px]:px-3 max-[550px]:py-1 max-[550px]:tracking-[0.24em]
           "
         >
-          Dynamic Web Designer/Developer
+          Dynamic FullStack Developer
         </p>
 
         {/* line 1 */}

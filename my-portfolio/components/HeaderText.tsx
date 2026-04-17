@@ -1,27 +1,25 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import Typed from "typed.js";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Button } from "./ui/moving-border";
 
 type Props = { name?: string };
+const roles = [
+  "FullStack Developer",
+  "Web Developer",
+  "Backend Developer",
+  "UI/UX Designer",
+];
 
 export default function HeaderText({ name = "Anita" }: Props) {
-  const typedEl = useRef<HTMLSpanElement>(null);
+  const [roleIndex, setRoleIndex] = useState(0);
 
   useEffect(() => {
-    if (!typedEl.current) return;
-    const typed = new Typed(typedEl.current, {
-      strings: ["Web Designer", "UI/UX Developer", "Web Developer"],
-      typeSpeed: 70,
-      backSpeed: 40,
-      backDelay: 900,
-      loop: true,
-      smartBackspace: true,
-      showCursor: false,
-    });
-    return () => typed.destroy();
+    const interval = window.setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 1800);
+    return () => window.clearInterval(interval);
   }, []);
 
   return (
@@ -34,13 +32,7 @@ export default function HeaderText({ name = "Anita" }: Props) {
           [text-shadow:0_6px_24px_rgba(0,0,0,.35)]
         "
       >
-        {/* Flex row on desktop, stacked on mobile */}
-        <span
-          className="
-            inline-flex flex-wrap items-center gap-3
-            max-[550px]:whitespace-normal max-[550px]:flex-col max-[550px]:items-start max-[550px]:gap-1
-          "
-        >
+        <span className="inline-flex items-center gap-3 flex-wrap max-[550px]:gap-2">
           <span className="bg-gradient-to-r from-gray-100 via-gray-300 to-gray-100 text-transparent bg-clip-text max-[550px]:text-3xl">
             Hi! I'm{" "}
             <span className="font-semibold bg-gradient-to-r from-orange-800 via-orange-500 to-orange-100 text-transparent bg-clip-text max-[550px]:text-3xl">
@@ -51,19 +43,19 @@ export default function HeaderText({ name = "Anita" }: Props) {
             </span>
           </span>
 
-          {/* typed pill stays inline on desktop */}
           <span
             className="
-              relative flex-none overflow-hidden rounded-md bg-black/20
-              px-4 py-2 w-auto min-w-[15ch]
-              max-[550px]:text-lg max-[550px]:py-2 max-[550px]:px-4 mt-3
+              relative inline-flex items-center overflow-hidden rounded-md bg-black/20
+              px-3 py-1.5 w-[15ch] h-[2.4rem] md:h-[3rem]
+              max-[550px]:w-[16ch] max-[550px]:text-lg max-[550px]:py-1.5 max-[550px]:px-3
               max-[550px]:bg-transparent border-0 max-[550px]:border max-[550px]:border-orange-500/20
             "
           >
             <span
-              ref={typedEl}
-              className="bg-gradient-to-r from-orange-800 via-orange-500 to-orange-100 text-transparent bg-clip-text whitespace-nowrap text-xl md:text-3xl"
-            />
+              className="inline-block w-full whitespace-nowrap text-orange-400 text-xl md:text-3xl font-medium"
+            >
+              {roles[roleIndex]}
+            </span>
           </span>
         </span>
       </h2>
