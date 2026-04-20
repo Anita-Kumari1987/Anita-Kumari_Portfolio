@@ -12,6 +12,7 @@ const techSkills = [
   { name: "Tailwind CSS" },
   { name: "TypeScript" },
   { name: "Node JS" },
+  { name: "Supabase" },
   { name: "Mongo DB" },
   { name: "Shad CN" },
   { name: "Magic UI" },

@@ -13,6 +13,14 @@ type Card = {
 
 const CARDS: Card[] = [
   {
+    title: "FullStack Developer - ByteSpoke AB",
+    desc:
+      "Building and maintaining full-stack features, from responsive user interfaces to backend services and integrations.",
+    icon: "/images/my-projects/ByteSpoke.png",
+    duration: "Sept 2025 - Present",
+    glow: "top",
+  },
+  {
     title: "HR-Coordinator - H&M Group AB",
     desc:
       "Worked on end-to-end recruitment cycle and keep track of the candidates via ATS",

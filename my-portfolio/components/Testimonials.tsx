@@ -16,6 +16,15 @@ type Testimonial = {
 
 const TESTIMONIALS: Testimonial[] = [
   {
+    id: 0,
+    quote:
+      "With a strong work ethic and excellent interpersonal skills Anita was a boost for our H&M Talent Acquisition team and a valuable asset for us to deliver on our assignments. From the very first day Anita showed she is not afraid of speaking up within larger groups, offering good perspectives. Interpersonal skills is a natural talent for Anita where she really excels. It was a joy to see her use those skills with more and more confidence also towards our stakeholders, including very senior Hiring managers across our company.\n\nAnita has a way of reaching out and connecting with people in a very pleasant and straightforward way. On several occasions when giving her additional assignments outside her ordinary scope, she took on these tasks very diligently and delivered on very short notice exceeding expectations.\n\nIt would be my pleasure to work with her again!",
+    name: "Gustaf Geterud",
+    role: "TA Lead & Senior Project Leader",
+    company: "H&M Group AB",
+    avatar: "/images/testimonials/Gustaf Geterud.png",
+  },
+  {
     id: 1,
     quote:
       "As Anita’s instructor during the Frontend program at Hyper Island, I was impressed by her curiosity, consistent enthusiasm, and creative way of approaching challenges and solving them. She brought a thoughtful energy to the classroom that enriched both her own learning and the experience of her peers.",
@@ -160,39 +169,26 @@ export default function TestimonialsJayden({
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.98 }}
               transition={{ duration: 0.75, ease: "easeInOut" }}
-              className="relative"
+              className="relative flex flex-col items-center"
             >
-              <div
-                className="
-                  relative overflow-hidden rounded-2xl md:rounded-[28px]
-                  border border-white/12 bg-white/[0.05] backdrop-blur-xl
-                  shadow-[0_25px_60px_-30px_rgba(0,0,0,.6)]
-                  w-[70vw] max-w-[14rem] h-[180px]
-                  md:w-[3500px] md:h-[320px] max-[550px]:w-[70vw] max-[550px]:max-w-[14rem] max-[550px]:h-[180px]
-                  mr-0 md:mr-2.5
-                "
-              >
-                <span className="pointer-events-none absolute inset-0 rounded-[inherit] [background:radial-gradient(50%_60%_at_20%_10%,rgba(255,255,255,.12),transparent_60%)]" />
+              <div className="relative h-52 w-52 md:h-72 md:w-72 rounded-full overflow-hidden">
+                <Image
+                  src={current.avatar}
+                  alt={current.name}
+                  fill
+                  className="object-cover object-center"
+                  priority
+                  sizes="(min-width:1024px) 18rem, 13rem"
+                />
+              </div>
 
-                <div className="absolute bottom-0 right-0 w-full h-full overflow-hidden rounded-tl-[18px]">
-                  <Image
-                    src={current.avatar}
-                    alt={current.name}
-                    fill
-                    className="object-cover object-[60%_50%]"
-                    priority
-                    sizes="(min-width:1024px) 30vw, 60vw"
-                  />
+              <div className="mt-4 text-center">
+                <div className="text-white font-semibold text-base md:text-lg">
+                  {current.name}
                 </div>
-
-                <div className="absolute bottom-5 left-5 md:left-6">
-                  <div className="text-white font-semibold text-base md:text-lg">
-                    {current.name}
-                  </div>
-                  <div className="text-white/75 text-xs md:text-sm">{current.role}</div>
-                  <div className="text-white/60 text-[10px] md:text-xs uppercase tracking-wide">
-                    {current.company}
-                  </div>
+                <div className="text-white/75 text-xs md:text-sm">{current.role}</div>
+                <div className="text-white/60 text-[10px] md:text-xs uppercase tracking-wide">
+                  {current.company}
                 </div>
               </div>
             </motion.div>
