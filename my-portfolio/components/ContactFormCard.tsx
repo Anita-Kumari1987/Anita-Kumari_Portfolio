@@ -7,18 +7,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import BorderSpotlight from "./BorderSpotlight";
 
-export const TOPICS = [
-  "Portfolio inquiry",
-  "Freelance project",
-  "UI/UX",
-  "Interview",
-  "Other",
-] as const;
-
 export const schema = z.object({
   name: z.string().trim().min(2, "Name must be at least 2 characters"),
   email: z.string().trim().email("Enter a valid email"),
-  topic: z.enum(TOPICS),
+  topic: z.string().trim().min(2, "Subject must be at least 2 characters"),
   message: z
     .string()
     .trim()
@@ -148,7 +140,7 @@ export default function ContactFormCard() {
           )}
         </div>
 
-        {/* Topic */}
+        {/* Subject */}
         <div>
           <label
             htmlFor="topic"
@@ -156,29 +148,19 @@ export default function ContactFormCard() {
           >
             Subject
           </label>
-          <select
+          <input
             id="topic"
-            defaultValue=""
-            {...register("topic", { validate: (v) => (v ? true : "Please select a topic") })}
-            className="w-full appearance-none rounded-2xl border border-white/10 bg-white/5 px-4 py-3 md:py-4
-                       pr-10 md:pr-12 text-base md:text-xl backdrop-blur-xl
+            type="text"
+            {...register("topic")}
+            className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 md:py-4
+                       text-base md:text-xl backdrop-blur-xl
                        placeholder:text-base md:placeholder:text-xl placeholder-white/40
                        focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/60
-                       [background:url('/images/svg-Icons/down-arrow.svg')_no-repeat_right_0.75rem_center]
-                       md:[background-position:right_1rem_center] [background-size:20px] md:[background-size:24px]
-                       [&::-ms-expand]:hidden"
+                       "
             aria-invalid={!!errors.topic}
             aria-describedby={errors.topic ? "topic-error" : undefined}
-          >
-            <option value="" disabled>
-              Select a subject…
-            </option>
-            {TOPICS.map((t) => (
-              <option key={t} value={t}>
-                {t}
-              </option>
-            ))}
-          </select>
+            placeholder="Enter subject"
+          />
           {errors.topic && (
             <span id="topic-error" className="mt-1.5 md:mt-2 block text-sm md:text-xl font-light text-red-500">
               {errors.topic.message}

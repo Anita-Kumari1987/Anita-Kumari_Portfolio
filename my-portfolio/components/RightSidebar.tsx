@@ -22,8 +22,8 @@ export default function RightSidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="fixed right-6 top-1/2 -translate-y-1/2 z-50">
-      <nav className="relative isolate flex w-[72px] flex-col items-center gap-3 md:gap-4 rounded-full border border-white/10 bg-gradient-to-b from-[#1a0f07] via-[#150c06] to-[#0d0704] py-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+    <aside className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden md:block">
+      <nav className="relative isolate flex w-[60px] flex-col items-center gap-3 md:gap-4 rounded-full border border-white/10 bg-gradient-to-b from-[#1a0f07] via-[#150c06] to-[#0d0704] py-6 shadow-[0_8px_32px_rgba(0,0,0,0.4)] mr-2">
         {/* Background glow */}
         <div className="absolute inset-0 -z-10 rounded-full bg-gradient-to-b from-orange-500/10 via-amber-500/5 to-transparent" />
         {/* Bottom blur gradient */}

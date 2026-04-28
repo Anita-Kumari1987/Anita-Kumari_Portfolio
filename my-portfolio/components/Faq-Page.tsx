@@ -6,8 +6,8 @@ import { TextAnimate } from "@/components/magicui/text-animate";
 type QA = { id: number; question: string; answer: string };
 
 const faqs: QA[] = [
-  { id: 1, question: "Where are you currently based, and how long have you been living there?", answer: "I am living in Stockholm, Sweden and I have been living here for past 7 years." },
-  { id: 2, question: "Do you have the legal right to work in Sweden, or would you require visa assistance?", answer: "I hold a valid work permit to work in Sweden and do not require any additional visa assistance. This allows me to start working without administrative delays." },
+  { id: 1, question: "Where are you currently based, and how long have you been living there?", answer: "I am living in Stockholm, Sweden and I have been living here for past 8 years." },
+  { id: 2, question: "Do you have the legal right to work in Sweden, or would you require visa assistance?", answer: "I hold a permanent resident(PR) permit in Sweden and do not require any additional assistance. This allows me to start working without administrative delays." },
   { id: 3, question: "What motivated your transition from Human Resources to Web Development?", answer: "My curiosity for problem-solving and creativity led me to web development. HR taught me to understand real user needs. Here, I can turn those user needs into action and visible features by crafting user-friendly, impactful applications." },
   { id: 4, question: "In what ways does your HR and recruitment experience add value to your work as a developer?", answer: "My HR background strengthened my communication, collaboration, and problem-solving skills. I’m comfortable gathering requirements, empathizing with users, and working with cross-functional teams—bringing a human-centered mindset to technical work." },
   { id: 5, question: "What type of working arrangement are you seeking (remote, hybrid, or on-site)?", answer: "I’m flexible and open to remote, hybrid, or on-site roles. I adapt quickly to the team’s workflow and communication style to stay productive in any setup." },

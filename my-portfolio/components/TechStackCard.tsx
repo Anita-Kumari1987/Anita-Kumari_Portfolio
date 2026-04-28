@@ -83,6 +83,7 @@ export default function TechStackSection() {
     <Image key="react" src="/images/TechIcons/react.svg" alt="React" width={36} height={36} />,
     <Image key="next" src="/images/TechIcons/next-js.svg" alt="Next.js" width={36} height={36} />,
     <Image key="tailwind" src="/images/TechIcons/tailwind.svg" alt="Tailwind" width={48} height={48} />,
+    <Image key="supabase" src="/images/TechIcons/supabase.svg" alt="Supabase" width={48} height={48} />,
     <Icons.gitHub key="gh" />,
     <Image key="ts" src="/images/TechIcons/typescript.svg" alt="TypeScript" width={36} height={36} />,
     <Image key="figma" src="/images/TechIcons/figma.svg" alt="Figma" width={44} height={44} />,

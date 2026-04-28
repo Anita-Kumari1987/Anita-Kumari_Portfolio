@@ -96,6 +96,27 @@ html, body {
   overflow-x: hidden;
 }
 
+/* Pointer cursor for interactive elements site-wide */
+a:not([aria-disabled="true"]),
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]),
+[role="link"]:not([aria-disabled="true"]),
+[role="tab"]:not([aria-disabled="true"]),
+[role="menuitem"]:not([aria-disabled="true"]),
+[role="option"]:not([aria-disabled="true"]),
+label[for],
+summary,
+select:not(:disabled),
+input[type="button"]:not(:disabled),
+input[type="submit"]:not(:disabled),
+input[type="reset"]:not(:disabled),
+input[type="checkbox"]:not(:disabled),
+input[type="radio"]:not(:disabled),
+input[type="file"]:not(:disabled),
+input[type="image"]:not(:disabled) {
+  cursor: pointer;
+}
+
 /* Make media shrink instead of overflow */
 img, svg, video, canvas {
   max-width: 100%;
