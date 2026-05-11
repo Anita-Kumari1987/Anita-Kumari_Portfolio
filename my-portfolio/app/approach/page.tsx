@@ -1,6 +1,7 @@
 'use client'
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Icon from "@/components/ui/Icon";
 
 import { CanvasRevealEffect } from "../../components/ui/CanvasRevealEffect";
 
@@ -185,19 +186,5 @@ const AceternityIcon = ({ order }: { order: string }) => {
   );
 };
 
-export const Icon = ({ className, ...rest }: any) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth="1.5"
-      stroke="currentColor"
-      className={className}
-      {...rest}
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
-    </svg>
-  );
-};
+
 
