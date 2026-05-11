@@ -29,36 +29,41 @@ export function Button({
   className?: string;
   [key: string]: any;
 }) {
-  return (
-    <Component
-      className={cn(
-        "relative overflow-hidden bg-transparent p-[1px] text-xl",
-        containerClassName,
-      )}
-      style={{ borderRadius }}
-      {...otherProps}
-    >
-      <div className="absolute inset-0" style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}>
-        <MovingBorder duration={duration} rx="30%" ry="30%">
-          <div
-            className={cn(
-              "h-10 w-20 bg-[radial-gradient(#0ea5e9_40%,transparent_60%)] opacity-[0.7]",
-              borderClassName,
-            )}
-          />
-        </MovingBorder>
-      </div>
+  const RenderComponent = Component as React.ElementType;
+  const componentProps = {
+    className: cn(
+      "relative overflow-hidden bg-transparent p-[1px] text-xl",
+      containerClassName,
+    ),
+    style: { borderRadius },
+    ...otherProps,
+  } as Record<string, unknown>;
 
-      <div
-        className={cn(
-          "relative flex items-center justify-center border border-slate-800 bg-slate-900/[0.8] text-sm text-white antialiased backdrop-blur-xl",
-          className,
-        )}
-        style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}
-      >
-        {children}
-      </div>
-    </Component>
+  return (
+    React.createElement(RenderComponent, componentProps,
+      <>
+        <div className="absolute inset-0" style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}>
+          <MovingBorder duration={duration} rx="30%" ry="30%">
+            <div
+              className={cn(
+                "h-10 w-20 bg-[radial-gradient(#0ea5e9_40%,transparent_60%)] opacity-[0.7]",
+                borderClassName,
+              )}
+            />
+          </MovingBorder>
+        </div>
+
+        <div
+          className={cn(
+            "relative flex items-center justify-center border border-slate-800 bg-slate-900/[0.8] text-sm text-white antialiased backdrop-blur-xl",
+            className,
+          )}
+          style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}
+        >
+          {children}
+        </div>
+      </>
+    )
   );
 }
 
